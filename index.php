@@ -19,12 +19,12 @@
 		$wp_object = get_post();
 	?>
 	<div>
-		<?php if ( $wp_object != null ){ ?>
+		<?php if ( $wp_object != null ) : ?>
 			<h2><?php echo $wp_object->post_title; ?></h2>
 			<?php echo $wp_object->post_content; ?>
-		<?php }else{ ?>
+		<?php else : ?>
 			<h2>No post</h2>
-		<?php }?>
+		<?php endif; ?>
 	</div>
 	
 	<footer>
