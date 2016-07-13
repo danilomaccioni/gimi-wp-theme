@@ -11,3 +11,8 @@
 	<header>
 		<h1><?php bloginfo('name'); ?></h1>
 	</header>
+	<nav>
+		
+		<?php //wp_list_pages(array('title_li' => null )); ?>
+		<?php wp_page_menu(array( 'show_home' => 1)); ?>
+	</nav>
