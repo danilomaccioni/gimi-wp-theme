@@ -6,7 +6,7 @@
 * Author: Enrico Di Giovanni, Danilo Maccioni
 * Text Domanin: gimi
 * Domain path: /i18n
-* Tags: responsive
+* Tags: responsive, featured image
 */
 
 @charset "utf-8";
@@ -57,6 +57,12 @@ nav li.current_page_item a{
 nav li.current_page_item a:hover{
 	background-color: #4CAF50;
 } 
+
+.post_list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0px;
+}
 
 footer {
 	text-align: center;

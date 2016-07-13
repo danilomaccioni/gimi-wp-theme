@@ -3,10 +3,19 @@
 
 	<h2>Benvenuto</h2>
 	
-	<?php if ( have_posts() ): while ( have_posts() ): the_post(); ?>
-	<a href="<?php the_permalink(); ?>"> <?php the_title();?></a>
-	<?php echo get_the_excerpt();?>
-	<?php endwhile; endif; ?>
+	<?php if ( have_posts() ) : ?>
+		<ul class="post_list">
+		<?php while ( have_posts() ): the_post(); ?>
+			<li>
+			<?php if ( has_post_thumbnail() ): ?>
+				<a href="<?php the_permalink(); ?>"> 
+				<?php the_post_thumbnail(array(100,100)); ?> 
+				</a> 
+			<?php endif; ?> 
+			<h3><?php the_title();?></h3>
+			<?php echo get_the_excerpt();?>
+			</li>
+			<?php endwhile; ?> </ul> <?php endif; ?>
 	
 	
 <?php get_footer(); ?>
