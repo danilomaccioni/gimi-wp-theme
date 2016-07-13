@@ -64,6 +64,21 @@ nav li.current_page_item a:hover{
 	padding: 0px;
 }
 
+.post_thumbnail {
+	float: left;
+	padding: 0px 15px 0px 10px;
+}
+
+.moretag {
+	display: block; 
+}
+
+/*
+.post_excerpt {
+	float: left;
+}*/
+
 footer {
 	text-align: center;
+	clear: both;
 }

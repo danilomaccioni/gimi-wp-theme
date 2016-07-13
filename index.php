@@ -8,12 +8,14 @@
 		<?php while ( have_posts() ): the_post(); ?>
 			<li>
 			<?php if ( has_post_thumbnail() ): ?>
-				<a href="<?php the_permalink(); ?>"> 
-				<?php the_post_thumbnail(array(100,100)); ?> 
-				</a> 
+				<a class="post_thumbnail" href="<?php the_permalink(); ?>"> 
+				<?php the_post_thumbnail(array(150,150)); ?> 
+				</a>
 			<?php endif; ?> 
+			<div class="post_excerpt">
 			<h3><?php the_title();?></h3>
 			<?php echo get_the_excerpt();?>
+			</div>
 			</li>
 			<?php endwhile; ?> </ul> <?php endif; ?>
 	
