@@ -10,11 +10,16 @@
 */
 
 @charset "utf-8";
+@font-face { font-family: gimi_base; src: url("./fonts/FjallaOne-Regular.ttf") format("truetype") }
 
 @media(max-width: 400px) {
 	body {
 		background: red;
 	}
+}
+
+body{
+	font-family: 'gimi_base', sans-serif;
 }
 
 header {
