@@ -62,7 +62,7 @@ nav li.current_page_item a:hover {
 .post_list {
 	list-style-type: none;
 	margin: 0;
-	padding: 0px;
+	padding: 0px 30px;
 }
 
 .post_thumbnail {
@@ -72,6 +72,14 @@ nav li.current_page_item a:hover {
 
 .moretag {
 	display: block; 
+}
+
+.navigation{
+	text-align: right;
+}
+
+.navigation div.alignleft , .navigation div.alignright{
+	display:inline-block;
 }
 
 footer {

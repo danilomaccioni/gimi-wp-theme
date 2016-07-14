@@ -14,6 +14,10 @@
 		</li>
 		<?php endwhile; ?>
 	</ul>
+	<div class="navigation">
+		<div class="alignleft"><?php previous_posts_link( '&laquo; Next Entries' ); ?></div>
+		<div class="alignright"><?php next_posts_link( 'Previous Entries &raquo; ', '' ); ?></div>
+	</div>
 <?php endif; ?>
 
 <?php get_footer(); ?>
