@@ -77,15 +77,45 @@ nav li.current_page_item a {
 	list-style-type: none;
 }
 
-.post_thumbnail {
-	float: left;
+.post_list li{
+	clear: both;
+}
+
+.post_list li hr{
+	width:40%;
+	height:1px;
+	background-color:#39e;
+	border: none;
+}
+
+.container_thumbnail{
+	width: 150px;
+	height: 150px;
+	/*float: left;*/
+	position: absolute;
+	
 	padding: 0px 15px 0px 10px;
 }
 
-.moretag {
+.post_preview {
+	/*float: left;*/
+	/*width: 500px;*/
+	margin: 0px 0px 0px 175px;
+}
+
+.post_preview h3 a{
+	text-decoration: none;
+	color: inherit;
+}
+
+.more-link {
 	display: block;
 	text-align: right;
 	padding: .5em 0px;
+	text-decoration: none;
+	font-size: .75em;
+	color: #39e;
+	font-weight: bold;
 }
 
 .navigation{

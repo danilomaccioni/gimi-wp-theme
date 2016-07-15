@@ -5,13 +5,16 @@
 		<ul class="post_list">
 			<?php while ( have_posts() ) : the_post(); ?>
 			<li>
-				<?php if ( has_post_thumbnail() ) : ?>
-					<a class="post_thumbnail" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(150,150)); ?></a>
-				<?php endif; ?> 
-				<div class="post_excerpt">
-					<h3><?php the_title();?></h3>
-					<?php echo get_the_excerpt();?>
+				<div class="container_thumbnail">
+					<?php if ( has_post_thumbnail() ) : ?>
+							<a class="post_thumbnail" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(150,150)); ?></a>
+					<?php endif; ?> 
 				</div>
+				<div class="post_preview">
+					<h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
+					<?php /*echo get_the_excerpt();*/   the_content('[ suka... ]'); ?>
+				</div>
+				<hr>
 			</li>
 			<?php endwhile; ?>
 		</ul>
