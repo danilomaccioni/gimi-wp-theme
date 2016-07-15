@@ -24,6 +24,8 @@ ul {
 }
 
 body{
+	padding: 0px;
+	margin: 0px;
 	font-family: 'gimi_base', sans-serif;
 	color: #777;
 }
@@ -134,6 +136,15 @@ nav li.current_page_item a {
 }
 
 footer {
+	padding: 1em 0px 3em 0px;
+	background-color: #39e;
+	color: #FFF; 
 	text-align: center;
-	clear: both;
+	/*clear: both;*/
+}
+
+.bottom_footer {
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
 }
