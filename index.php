@@ -3,7 +3,8 @@
 <?php if ( have_posts() ) : ?>
 	<div class="post_container">
 		<ul class="post_list">
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php $post_while_counter = 0; global $wp_query;?>
+			<?php while ( have_posts() ) : the_post(); $post_while_counter++ ?>
 			<li>
 				<div class="container_thumbnail">
 					<?php if ( has_post_thumbnail() ) : ?>
@@ -14,7 +15,9 @@
 					<h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
 					<?php /*echo get_the_excerpt();*/   the_content('[ suka... ]'); ?>
 				</div>
-				<hr>
+				<?php if ( $post_while_counter <  $wp_query->post_count): ?>
+					<hr>
+				<?php endif; ?>
 			</li>
 			<?php endwhile; ?>
 		</ul>
