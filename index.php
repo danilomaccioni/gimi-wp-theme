@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <?php if ( have_posts() ) : ?>
-	<div class="post_container">
+	<div class="post_container main_container">
 		<ul class="post_list">
 			<?php $post_while_counter = 0; global $wp_query;?>
 			<?php while ( have_posts() ) : the_post(); $post_while_counter++ ?>

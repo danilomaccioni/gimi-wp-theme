@@ -18,6 +18,10 @@
 	}
 }
 
+.main_container{
+	padding: 20px 30px 0px 30px;
+}
+
 ul {
 	padding: 0px;
 	margin: 0px;
@@ -55,7 +59,6 @@ nav li a {
 	text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
 nav li a:hover {
   background-color: #fff;
   color: #39e;
@@ -71,8 +74,10 @@ nav li.current_page_item a {
 	cursor: default;
 } 
 
+/* index.php */
+
 .post_container{
-	padding: 20px 30px 0px 30px;
+	
 }
 
 .post_list {
@@ -134,6 +139,18 @@ nav li.current_page_item a {
 .navigation .nav_separetor{
  padding : 0px 12px;
 }
+
+/* Page.php */
+
+.page_container h2{
+	margin: 0px 0px 1em 0px;
+}
+
+.page_container .post_date {
+	text-align: right;
+}
+
+/* footer.php */
 
 footer {
 	padding: 1em 0px 3em 0px;
