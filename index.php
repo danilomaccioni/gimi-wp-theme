@@ -1,18 +1,19 @@
 <?php get_header(); ?>
 
 <?php if ( have_posts() ) : ?>
-	<div class="post_container main_container">
-		<ul class="post_list">
+	<div class="posts_container main_container">
+		<ul class="posts_list">
 			<?php $post_while_counter = 0; global $wp_query;?>
 			<?php while ( have_posts() ) : the_post(); $post_while_counter++ ?>
 			<li>
 				<div class="container_thumbnail">
 					<?php if ( has_post_thumbnail() ) : ?>
-							<a class="post_thumbnail" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(150,150)); ?></a>
+							<a class="post_preview_thumbnail" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(150,150)); ?></a>
 					<?php endif; ?> 
 				</div>
 				<div class="post_preview">
 					<h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
+					<?php print_post_date("post_preview_date");?>
 					<?php /*echo get_the_excerpt();*/   the_content('[ suka... ]'); ?>
 				</div>
 				<?php if ( $post_while_counter <  $wp_query->post_count): ?>

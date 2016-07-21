@@ -4,7 +4,7 @@
 * Description: Tema edizione 2016 del gruppo di interscambio multilello gli indecisi
 * Tags: responsive, featured image
 * Version: 0.1
-* Author: Enrico Di Giovanni, Danilo Maccioni
+* Author: Enrico Di Giovanni, Danilo Maccioni, Pippo Zalando
 * Text Domanin: gimi
 * Domain path: /i18n
 */
@@ -76,19 +76,15 @@ nav li.current_page_item a {
 
 /* index.php */
 
-.post_container{
-	
-}
-
-.post_list {
+.posts_list {
 	list-style-type: none;
 }
 
-.post_list li{
+.posts_list li{
 	clear: both;
 }
 
-.post_list li hr{
+.posts_list li hr{
 	width:40%;
 	height:1px;
 	background-color:#39e;
@@ -146,8 +142,23 @@ nav li.current_page_item a {
 	margin: 0px 0px 1em 0px;
 }
 
-.page_container .post_date {
+.page_container .page_post_date {
 	text-align: right;
+}
+
+/* single.php */
+
+.post_container h1{
+	margin: 1em 0px 0px 0px;
+}
+
+.single_post_date {
+	text-align: right;
+}
+
+.post_thumbnail{
+	float: left;
+	padding: 10px;
 }
 
 /* footer.php */
