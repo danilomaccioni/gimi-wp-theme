@@ -176,3 +176,38 @@ footer {
 	bottom: 0px;
 	width: 100%;
 }
+
+/* wp gallery override */
+
+
+.gallery{
+	text-align: center !important;
+}
+
+.gallery br{
+	display: none;
+}
+
+.gallery .gallery-item{
+	float: none !important;
+	width: 200px !important;
+	display: inline-block !important;
+}
+
+.gallery dl{
+	position: relative;
+	width: 200px;
+	overflow: hidden;
+}
+
+.gallery dl:hover dd{
+	bottom:0px;
+	transition: bottom 200ms;
+	background-color: white;
+}
+
+.gallery dd {
+    bottom: -2em;
+    position: absolute;
+    text-align: center;
+    width: 100%;

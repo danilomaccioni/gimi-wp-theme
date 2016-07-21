@@ -59,6 +59,13 @@ function print_post_date($class_div = Null){
 	echo "<div" . $str . ">" . date_i18n( get_option( 'date_format' ), strtotime($wp_post_object->post_date ) ) . "</div>";
 }
 
+add_action( 'wp_enqueue_scripts', 'register_gimi_styles' );
+
+function register_gimi_styles() {
+	wp_register_style( 'gimi', get_stylesheet_directory_uri() . "/style.css" );
+	wp_enqueue_style( 'gimi' );
+}
+
 ?>
 
 
