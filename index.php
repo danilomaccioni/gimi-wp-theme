@@ -16,6 +16,7 @@
 					<?php print_post_date("post_preview_date");?>
 					<?php /*echo get_the_excerpt();*/   the_content('[ suka... ]'); ?>
 				</div>
+				<?php print_category_and_tag(); ?>
 				<?php if ( $post_while_counter <  $wp_query->post_count): ?>
 					<hr>
 				<?php endif; ?>

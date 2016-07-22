@@ -53,11 +53,15 @@ function the_post_thumbnail_caption() {
   }
 }
 
+/******/
+
 function print_post_date($class_div = Null){
 	$wp_post_object = get_post();
 	$str = ($class_div != Null)? ' class="' . $class_div .'"'  : '';
 	echo "<div" . $str . ">" . date_i18n( get_option( 'date_format' ), strtotime($wp_post_object->post_date ) ) . "</div>";
 }
+
+/*****/
 
 add_action( 'wp_enqueue_scripts', 'register_gimi_styles' );
 
@@ -66,6 +70,21 @@ function register_gimi_styles() {
 	wp_enqueue_style( 'gimi' );
 }
 
+
+
+function print_category_and_tag(){
+	
+	if (the_category(', ') != ''){
+		echo '<div class="post_category">';
+			//the_category(', ');
+		echo '</div>';
+	}
+	
+	if (the_tags() != ''){
+		echo '<div class="post_tags">';
+			//the_tags();
+		echo '</div>';
+	}
+}
+
 ?>
-
-
