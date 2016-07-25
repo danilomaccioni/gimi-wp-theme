@@ -70,21 +70,74 @@ function register_gimi_styles() {
 	wp_enqueue_style( 'gimi' );
 }
 
-
+/*********/
 
 function print_category_and_tag(){
+		
+	$cat_array = get_the_category();
+	$tag_array = get_the_tags();
+	$category_list = array();
+	$tag_list = array();
 	
-	if (the_category(', ') != ''){
-		echo '<div class="post_category">';
-			//the_category(', ');
-		echo '</div>';
+	foreach ($cat_array as $wp_term_object_array){
+		if ($wp_term_object_array->cat_ID != 1){
+			$category_list[$wp_term_object_array->cat_ID] = $wp_term_object_array->name;
+		}
+	}
+		//print_r ( $category_list );
+		//echo count($category_list);
+	switch ($category_counter = count($category_list) ) {
+		case 0:
+			break;
+		
+		case 1:
+			echo '<div class="post_category">';
+			echo 'Category: <a href="' . get_category_link(key($category_list)) . '">' . array_shift($category_list) . '</a>';
+			echo '</div>';
+			break;
+			
+		default:
+			$counter = 0;
+			$str = "Categories: ";
+			foreach($category_list as $key => $value){
+				$str .= '<a href="' . get_category_link($key) . '">' . $value . '</a>';
+				$str .= ($counter < $category_counter - 1)?', ':'';
+				$counter++;
+			}
+			echo '<div class="post_category">' . $str . '</div>';
+			break;
+	}
+				
+				
+	if ($tag_array ){
+		foreach($tag_array as $wp_term_object_tag){
+			$tag_list[$wp_term_object_tag->term_id] = $wp_term_object_tag->name;
+		}
 	}
 	
-	if (the_tags() != ''){
-		echo '<div class="post_tags">';
-			//the_tags();
-		echo '</div>';
+	switch ($tag_counter = count($tag_list) ) {
+		case 0:
+			break;
+		
+		case 1:
+			echo '<div class="post_tags">';
+			echo 'Tag: <a href="' . get_tag_link(key($tag_list)) . '">' . array_shift($tag_list) . '</a>';
+			echo '</div>';
+			break;
+		
+		default:
+			$counter = 0;
+			$str = "Tags: ";
+			foreach($tag_list as $key => $value){
+				$str .= '<a href="' . get_tag_link($key) . '">' . $value . '</a>';
+				$str .= ($counter < $tag_counter - 1)?', ':'';
+				$counter++;
+			}
+			echo '<div class="post_tags">' . $str . '</div>';
+			break;
 	}
+		
+		
 }
 
 ?>
