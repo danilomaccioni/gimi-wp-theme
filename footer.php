@@ -1,4 +1,4 @@
-		<footer class="bottom_footer">
+		<footer class="">
 			CC G.I.M.I. 2004
 			<?php //dynamic_sidebar( 'footer_widget_container' ); ?>
 		</footer>
