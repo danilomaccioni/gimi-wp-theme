@@ -21,9 +21,21 @@ function footerPosition(){
 	
 // ************************************************************************** //
 	
+function postListDynamicWidth(){
+
+	console.log( $('.main_column').parent().width() + ' -- ' + $('.user_sidebar').outerWidth() );
+	$('.author_posts_list').css('width', $('.author_posts_list').parent().width() - $('.user_sidebar').outerWidth() );
+	
+}
+	
 // EVENTS
 
-$(window).resize(function() { footerPosition() } );
+$(window).resize(function() { 
+	
+	footerPosition() 
+	postListDynamicWidth();
+	
+	} );
 
 // ************************************************************************** //
 
@@ -65,6 +77,7 @@ window.onscroll = function() {
 
 // INIT
 footerPosition();
+postListDynamicWidth()
 
 });
 

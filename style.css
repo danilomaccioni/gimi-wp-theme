@@ -265,7 +265,7 @@ footer {
 	padding: 20px;
 	border-left: .7em solid #f93;
 	margin-left: 20px;
-	width: 170px;
+	width: 200px;
 	text-align: center;
 }
 
@@ -303,7 +303,4 @@ footer {
 
 .box_url a:hover{
 	color: #f93;
-}
-.author_posts_list{
-	width: 70%
 }
