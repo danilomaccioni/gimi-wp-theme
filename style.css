@@ -38,9 +38,22 @@ body{
 
 header {
 	text-align: center;
+	overflow: auto;
+}
+
+header h1{
+	/*margin: 0px;*/
 }
 
 /*NAV MENU*/
+
+.nav_fixed{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+
 nav ul {
 	list-style-type: none;
 	margin: 0;
@@ -254,6 +267,12 @@ footer {
 	margin-left: 20px;
 	width: 170px;
 	text-align: center;
+}
+
+.user_sidebar_fixed{
+	/* top calcolato dinamicamente*/
+	position: fixed;
+	z-index: 999;
 }
 
 .user_sidebar div{
