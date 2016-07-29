@@ -2,7 +2,21 @@
 
 <?php if ( have_posts() ) : ?>
 	<div class="posts_container main_container">
-		<ul class="posts_list">
+		<div class="user_sidebar"> 
+			<?php $user_info = get_user_info('150'); ?>
+			<div class="box_avatar"> <?php echo $user_info['html_tag_avatar']; ?> </div>
+			<div class="box_name"> <?php echo $user_info['user_name']; ?> </div>
+			<div class="box_roles box_small_text"> <?php echo $user_info['roles']; ?> </div>
+			<div class="box_registered box_small_text"> <?php echo $user_info['registered']; ?> </div>
+			<div class="box_url box_small_text"> <a href="<?php echo $user_info['user_url']; ?>"> Site Url</a> </div>
+			<div class="box_description box_small_text"> <?php echo $user_info['description']; ?> </div>
+			
+			
+		</div>
+		
+		<div class="author_title">Post di <?php the_author(); ?></div>
+		
+		<ul class="posts_list author_posts_list">
 			<?php $post_while_counter = 0; global $wp_query;?>
 			<?php while ( have_posts() ) : the_post(); $post_while_counter++ ?>
 			<li>

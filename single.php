@@ -23,6 +23,11 @@
 		<h1><?php the_title();?></h1>
 		<?php print_post_date("single_post_date");?>
 		<?php the_content();?>
+		<?php the_author(); ?>
+		<?php the_author_link(); ?>
+		<p>Written by: 
+<?php the_author_posts_link(); ?></p>
+		<?php print_category_and_tag(); ?>
 	</div>
 <?php endwhile; endif; ?>
 

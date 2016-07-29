@@ -140,4 +140,47 @@ function print_category_and_tag(){
 		
 }
 
+
+function print_prev_next_links(){
+		$nav_status_prev = ( get_previous_posts_link() ) ? True : False;
+		$nav_status_next = ( get_next_posts_link() ) ? True : False;
+				
+		if ($nav_status_prev || $nav_status_next ) :?>
+			<div class="navigation">
+				 <?php if( $nav_status_prev ) :?>
+					<div class="alignleft"><?php previous_posts_link( '&laquo; Next Entries' ); ?></div>
+				<?php endif; ?>
+				
+				<?php if( $nav_status_prev && $nav_status_next ) :?>
+					<div class="nav_separetor"> || </div>
+				<?php endif; ?>
+				
+				<?php if( $nav_status_next ) : ?>
+					<div class="alignright"><?php next_posts_link( 'Previous Entries &raquo; ', '' ); ?></div>
+				<?php endif; ?>
+			</div>
+		<?php endif;
+}
+
+function print_post_separator($post_while_counter){
+		global $wp_query;
+		if ( $post_while_counter <  $wp_query->post_count): ?>
+			<hr>
+		<?php endif;
+}
+
+function get_user_info($size = ''){
+		$user_info = array();
+		 $WP_userdata = get_userdata( get_the_author_meta('ID') );
+		
+		$user_info['description'] = get_the_author_meta('description');
+		$user_info['html_tag_avatar'] = get_avatar( get_the_author_meta( 'ID' ), $size);
+		$user_info['registered'] =date_i18n( get_option( 'date_format' ), strtotime( $WP_userdata->user_registered ) ) ;
+		$user_info['user_name'] = $WP_userdata->display_name;
+		$user_info['user_url'] = $WP_userdata->user_url;
+		$user_info['roles'] = $WP_userdata->roles[0];
+		
+		return $user_info;
+}
+
 ?>
