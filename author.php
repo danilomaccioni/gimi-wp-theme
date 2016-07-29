@@ -10,8 +10,6 @@
 			<div class="box_registered box_small_text"> <?php echo $user_info['registered']; ?> </div>
 			<div class="box_url box_small_text"> <a href="<?php echo $user_info['user_url']; ?>"> Site Url</a> </div>
 			<div class="box_description box_small_text"> <?php echo $user_info['description']; ?> </div>
-			
-			
 		</div>
 		
 		<div class="author_title">Post di <?php the_author(); ?></div>
