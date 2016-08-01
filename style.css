@@ -4,12 +4,12 @@
 * Description: Tema edizione 2016 del gruppo di interscambio multilello gli indecisi
 * Tags: responsive, featured image
 * Version: 0.1
-* Author: Enrico Di Giovanni, Danilo Maccioni, Pippo Zalando
+* Author: Enrico Di Giovanni, Danilo Maccioni, Ernesto Mudu
 * Text Domanin: gimi
 * Domain path: /i18n
 */
 
-@charset "utf-8";
+@charset "utf-16";
 @font-face { font-family: gimi_base; src: url("./fonts/FjallaOne-Regular.ttf") format("truetype") }
 @font-face { font-family: gimi_light; src: url("./fonts/Armata-Regular.ttf") format("truetype") }
 
@@ -36,6 +36,46 @@ body{
 	color: #777;
 }
 
+.main_container ul, .main_container ol {
+    padding-left: 40px;
+}
+
+p, .main_container ul, .main_container ol{
+    letter-spacing: .025em;
+    line-height: 1.2em; 
+}
+
+dd, .main_container li {
+	padding: .5em 0px;
+}
+
+dd {
+    padding: .5em;
+    display: list-item;
+    list-style-type: lower-alpha;
+    padding: 1em 0px;
+}
+
+table{
+	border-collapse: collapse;
+	border: 1px solid black;
+	margin: 1em;
+}
+
+th {
+	padding: 0.5em;
+}
+
+td {
+		padding: 0px .5em;
+}
+
+tr:nth-child(even) {background: #CCC}
+tr:nth-child(odd) {background: #FFF}
+
+
+/* Header */
+
 header {
 	text-align: center;
 	overflow: auto;
@@ -43,6 +83,11 @@ header {
 
 header h1{
 	/*margin: 0px;*/
+}
+
+pre {
+	max-width: 100%;
+	overflow: hidden;
 }
 
 /*NAV MENU*/
