@@ -23,7 +23,7 @@ function footerPosition(){
 	
 function postListDynamicWidth(){
 
-	console.log( $('.main_column').parent().width() + ' -- ' + $('.user_sidebar').outerWidth() );
+	//console.log( $('.main_column').parent().width() + ' -- ' + $('.user_sidebar').outerWidth() );
 	$('.author_posts_list').css('width', $('.author_posts_list').parent().width() - $('.user_sidebar').outerWidth() );
 	
 }
@@ -43,11 +43,12 @@ $(window).resize(function() {
 window.onscroll = function() {
 	var positionFixedStatus = ( $('html').scrollTop() || $('body').scrollTop() ) >= $('header').outerHeight() ;
 	var padding = parseInt( $('.user_sidebar').parent().css('padding-top') ) ;
+	var navOffsetTop = ( $('#wpadminbar').length )? $('#wpadminbar').outerHeight(): 0 ;
 	
 	//nav fixed scroll
 	if ( positionFixedStatus ) {
 
-			$('nav').addClass('nav_fixed');
+			$('nav').addClass('nav_fixed').css('top', navOffsetTop );
 			$('.main_container').css('margin-top', $('nav').outerHeight() );
 	}
 	else {
@@ -61,7 +62,7 @@ window.onscroll = function() {
 
 			$('.user_sidebar')
 				.addClass('user_sidebar_fixed')
-				.css('top', padding + $('nav').outerHeight() )
+				.css('top', padding + navOffsetTop + $('nav').outerHeight() )
 			;
 	}
 	else {

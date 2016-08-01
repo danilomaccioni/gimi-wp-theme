@@ -53,7 +53,7 @@ dd {
     padding: .5em;
     display: list-item;
     list-style-type: lower-alpha;
-    padding: 1em 0px;
+
 }
 
 table{
@@ -94,7 +94,6 @@ pre {
 
 .nav_fixed{
 	position: fixed;
-	top: 0;
 	width: 100%;
 	z-index: 999;
 }
@@ -136,8 +135,9 @@ nav li.current_page_item a {
 
 /* index.php */
 
-.posts_list {
+ul.posts_list{
 	list-style-type: none;
+	padding: 0px;
 }
 
 .posts_list li{
@@ -299,6 +299,9 @@ footer {
     text-align: center;
     left: 4px;
     width: 150px;
+    padding: 0px;
+    display: block;
+
 }
 
 /* author.php */
