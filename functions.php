@@ -171,7 +171,7 @@ function print_post_separator($post_while_counter){
 
 function get_user_info($size = ''){
 		$user_info = array();
-		 $WP_userdata = get_userdata( get_the_author_meta('ID') );
+		$WP_userdata = get_userdata( get_the_author_meta('ID') );
 		
 		$user_info['description'] = get_the_author_meta('description');
 		$user_info['html_tag_avatar'] = get_avatar( get_the_author_meta( 'ID' ), $size);
@@ -181,6 +181,27 @@ function get_user_info($size = ''){
 		$user_info['roles'] = $WP_userdata->roles[0];
 		
 		return $user_info;
+}
+
+function creation_blog_date(){
+	global $wpdb;
+	//global $table_prefix;
+	
+	// tentativi
+	//$sql ="SELECT create_time FROM INFORMATION_SCHEMA.TABLES WHERE table_schema='" . DB_NAME . "' AND table_name='wp_users'";
+	//$sql = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema='" . DB_NAME . "' AND table_name='" . $table_prefix . "users'";
+	//$sql = "SHOW TABLE status WHERE name ='" . $table_prefix . "users'";
+	
+	// ultima versione
+	// http://stackoverflow.com/questions/11192885/get-mysql-database-creation-date-with-java
+	$sql = "SELECT MIN(create_time) AS c_date FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = '" . DB_NAME . "'";
+	$query_result = $wpdb->get_row( $sql )->c_date;
+	
+	// data completa formattata nel modo canonico del blog
+	//return date_i18n( get_option( 'date_format' ), strtotime( $query_result->date ) ) ;
+	
+	// prendo solo l'anno
+	return date_i18n( 'Y', strtotime( $query_result ) ) ;
 }
 
 ?>

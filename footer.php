@@ -1,5 +1,8 @@
 		<footer class="">
-			CC G.I.M.I. 2004
+			<?php bloginfo('name'); ?>
+			<?php
+				echo '<p>' . creation_blog_date() . '</p>';
+			?>
 			<?php //dynamic_sidebar( 'footer_widget_container' ); ?>
 		</footer>
 		<?php wp_footer(); ?>
