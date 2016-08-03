@@ -36,6 +36,17 @@ body{
 	color: #777;
 }
 
+.main_container a{
+	text-decoration: none;
+    color: #39e;
+}
+
+.main_container a:hover {
+    color: #f93;
+}
+
+
+/* ----->>> da controllare  <<----- */
 .main_container ul, .main_container ol {
     padding-left: 40px;
 }
@@ -45,15 +56,13 @@ p, .main_container ul, .main_container ol{
     line-height: 1.2em; 
 }
 
-dd, .main_container li {
+dd, .posts_list li {
 	padding: .5em 0px;
 }
 
 dd {
-    padding: .5em;
     display: list-item;
     list-style-type: lower-alpha;
-
 }
 
 table{
@@ -344,11 +353,56 @@ footer {
 	text-align: left;
 }
 
+/*
 .box_url a{
 	text-decoration: none;
 	color: #777;
 }
 
+
 .box_url a:hover{
 	color: #f93;
+}
+*/
+
+/*  Comments  */
+
+.comment{
+	border:  1px solid black;
+	padding: .7em;
+	margin: 1em 0px;
+}
+
+ul.comment-list {
+    padding: 0px;
+    width: 80%;
+    list-style-type: none;
+}
+/*
+.comment-list a {
+    text-decoration: none;
+    color: #39e;
+}
+
+.comment-list a:hover {
+    color: #f93;
+}*/
+
+.comment-body {
+    position: relative;
+}
+
+.comment-author.vcard {
+    display: inline-block;
+}
+
+.comment-meta {
+    display: inline-block;
+    right: 1em;
+    top: .5em;
+    position: absolute;
+}
+
+.reply {
+    padding-left: 30px;
 }
