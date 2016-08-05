@@ -8,7 +8,7 @@ if ( function_exists('add_theme_support') ) {
 
 // ************************************************************************** //
 
-function gimi_widgets_init() {
+function gimi_widgets_footer() {
 
 	register_sidebar( array(
 		'name'          => 'footer widget container',
@@ -20,7 +20,22 @@ function gimi_widgets_init() {
 	) );
 
 }
-add_action( 'widgets_init', 'gimi_widgets_init' );
+add_action( 'widgets_init', 'gimi_widgets_footer' );
+
+function gimi_widgets_right_sidebar() {
+
+	register_sidebar( array(
+		'name'          => 'right sidebar widget container',
+		'id'            => 'right_sidebar_widget_container',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<b class="right_sidebar_widget">',
+		'after_title'   => '</b>',
+	) );
+
+}
+add_action( 'widgets_init', 'gimi_widgets_right_sidebar' );
+
 
 // ************************************************************************** //
 
@@ -32,7 +47,6 @@ function gimi_include_function() {
 		false,
 		true
 	);
-	
 	
 	wp_enqueue_script('gimi-footer-script');
 }
@@ -78,6 +92,9 @@ function print_category_and_tag(){
 	$tag_array = get_the_tags();
 	$category_list = array();
 	$tag_list = array();
+	$cat_messages = "Article posted in ";
+	$tag_messages = "Article tagged in ";
+	
 	
 	foreach ($cat_array as $wp_term_object_array){
 		if ($wp_term_object_array->cat_ID != 1){
@@ -91,16 +108,21 @@ function print_category_and_tag(){
 			break;
 		
 		case 1:
-			echo '<div class="post_category">';
-			echo 'Category: <a href="' . get_category_link(key($category_list)) . '">' . array_shift($category_list) . '</a>';
-			echo '</div>';
+			$key = key($category_list);
+			$cat_shift = array_shift($category_list);
+		
+			echo ('<div class="post_category">'
+					. 'Category: <a href="' . get_category_link( $key ) 
+					. '" title="' . $cat_messages . $cat_shift . '">' 
+					. $cat_shift . '</a>'
+				  . '</div>');
 			break;
 			
 		default:
 			$counter = 0;
 			$str = "Categories: ";
 			foreach($category_list as $key => $value){
-				$str .= '<a href="' . get_category_link($key) . '">' . $value . '</a>';
+				$str .= '<a href="' . get_category_link($key) . '" title="' . $cat_messages . $value . '">' . $value . '</a>';
 				$str .= ($counter < $category_counter - 1)?', ':'';
 				$counter++;
 			}
@@ -120,24 +142,33 @@ function print_category_and_tag(){
 			break;
 		
 		case 1:
-			echo '<div class="post_tags">';
-			echo 'Tag: <a href="' . get_tag_link(key($tag_list)) . '">' . array_shift($tag_list) . '</a>';
-			echo '</div>';
+			$key = key($tag_list);
+			$tag_shift = array_shift($tag_list);
+		
+			echo(
+				'<div class="post_tags">' .
+					'Tag: ' .
+					'<a ' .
+						'href="' . get_tag_link( $key ) . '" ' .
+						'title="' . $tag_messages . $tag_shift . '"' .
+					'>' .
+						$tag_shift .
+					'</a>' .
+				'</div>'
+			);
 			break;
 		
 		default:
 			$counter = 0;
 			$str = "Tags: ";
 			foreach($tag_list as $key => $value){
-				$str .= '<a href="' . get_tag_link($key) . '">' . $value . '</a>';
+				$str .= '<a href="' . get_tag_link($key) . '" title="' . $tag_messages . $value . '">' . $value . '</a>';
 				$str .= ($counter < $tag_counter - 1)?', ':'';
 				$counter++;
 			}
 			echo '<div class="post_tags">' . $str . '</div>';
 			break;
 	}
-		
-		
 }
 
 
@@ -185,16 +216,18 @@ function get_user_info($size = ''){
 
 function creation_blog_date(){
 	global $wpdb;
-	//global $table_prefix;
+	global $table_prefix;
 	
 	// tentativi
 	//$sql ="SELECT create_time FROM INFORMATION_SCHEMA.TABLES WHERE table_schema='" . DB_NAME . "' AND table_name='wp_users'";
 	//$sql = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE table_schema='" . DB_NAME . "' AND table_name='" . $table_prefix . "users'";
 	//$sql = "SHOW TABLE status WHERE name ='" . $table_prefix . "users'";
 	
+	$sql = "SELECT MIN(create_time) AS c_date FROM INFORMATION_SCHEMA.TABLES WHERE table_schema='" . DB_NAME . "' AND table_name='" . $table_prefix . "users'";
+	
 	// ultima versione
 	// http://stackoverflow.com/questions/11192885/get-mysql-database-creation-date-with-java
-	$sql = "SELECT MIN(create_time) AS c_date FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = '" . DB_NAME . "'";
+	//$sql = "SELECT MIN(create_time) AS c_date FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = '" . DB_NAME . "'";
 	$query_result = $wpdb->get_row( $sql )->c_date;
 	
 	// data completa formattata nel modo canonico del blog
