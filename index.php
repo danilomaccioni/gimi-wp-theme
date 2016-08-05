@@ -2,6 +2,7 @@
 
 <?php if ( have_posts() ) : ?>
 	<div class="posts_container main_container">
+		<?php get_sidebar('info');?>
 		<ul class="posts_list">
 			<?php $post_while_counter = 0; global $wp_query;?>
 			<?php while ( have_posts() ) : the_post(); $post_while_counter++ ?>

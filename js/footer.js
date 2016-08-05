@@ -22,10 +22,27 @@ function footerPosition(){
 // ************************************************************************** //
 	
 function postListDynamicWidth(){
+/*
+	var sidebar = 0;
 
 	//console.log( $('.main_column').parent().width() + ' -- ' + $('.user_sidebar').outerWidth() );
-	$('.author_posts_list').css('width', $('.author_posts_list').parent().width() - $('.user_sidebar').outerWidth() );
+	if ($('.info_sidebar').length){
+		sidebar = $('.info_sidebar').outerWidth();
+	}else if ( $('.user_sidebar').length ){
+		sidebar = $('.user_sidebar').outerWidth();
+	}
 	
+	
+	//$('.author_posts_list').css('width', $('.author_posts_list').parent().width() - $('.user_sidebar').outerWidth() );
+	//$('.posts_list').css('width', $('.posts_list').parent().width() - $('.info_sidebar').outerWidth() );
+	
+	if ( sidebar ){
+		$('.posts_list').css('width', $('.posts_list').parent().width() - sidebar );
+	}
+*/
+
+	if ( $('.right_sidebar').length ) $('.posts_list').css('width', $('.posts_list').parent().width() - $('.right_sidebar').outerWidth() );
+
 }
 	
 // EVENTS

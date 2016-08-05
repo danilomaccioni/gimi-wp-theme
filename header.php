@@ -12,4 +12,5 @@
 		</header>
 		<nav>
 			<?php wp_page_menu(array( 'show_home' => 1)); ?>
+			<?php the_widget('WP_Widget_Search', array(), 'prova'); ?>
 		</nav>
