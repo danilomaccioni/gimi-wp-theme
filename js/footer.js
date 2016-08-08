@@ -40,8 +40,11 @@ function postListDynamicWidth(){
 		$('.posts_list').css('width', $('.posts_list').parent().width() - sidebar );
 	}
 */
-
-	if ( $('.right_sidebar').length ) $('.posts_list').css('width', $('.posts_list').parent().width() - $('.right_sidebar').outerWidth() );
+	//console.log( $('.main_container').parent(). );
+	//var right_sidebar_width = $('.main_container').parent().width() - $('.right_sidebar').outerWidth();
+	var right_sidebar_width = $('.main_container').width() - $('.right_sidebar').outerWidth();
+	if ( $('.right_sidebar').length ) $('.posts_container').css('width', right_sidebar_width );
+	//if ( $('.right_sidebar').length && $('.navigation').length ) $('.navigation').css('width', right_sidebar_width );
 
 }
 	
@@ -59,10 +62,11 @@ $(window).resize(function() {
 /* Set position fixed position of some elements during scroll*/
 window.onscroll = function() {
 	var positionFixedStatus = ( $('html').scrollTop() || $('body').scrollTop() ) >= $('header').outerHeight() ;
-	var padding = parseInt( $('.user_sidebar').parent().css('padding-top') ) ;
+	var padding = parseInt( $('.right_sidebar').parent().css('padding-top') ) ;
 	var navOffsetTop = ( $('#wpadminbar').length )? $('#wpadminbar').outerHeight(): 0 ;
 	
 	//nav fixed scroll
+	console.log( positionFixedStatus + ' -- ' + padding + ' -- ' + navOffsetTop);
 	if ( positionFixedStatus ) {
 
 			$('nav').addClass('nav_fixed').css('top', navOffsetTop );
@@ -71,7 +75,8 @@ window.onscroll = function() {
 	else {
 
 		$('nav').removeClass('nav_fixed');
-		$('.main_container').css('margin-top', '');
+		$('nav').css('top', '');
+		$('.main_container').css('margin-top', '' );
 	}
 	
 	//User sidebar fixed scroll
@@ -84,7 +89,7 @@ window.onscroll = function() {
 	}
 	else {
 
-		$('.user_sidebar')
+		$('.right_sidebar')
 			.removeClass('user_sidebar_fixed')
 			.css('top', '')
 		;

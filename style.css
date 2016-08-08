@@ -23,7 +23,6 @@
 .main_container{
 	padding: 20px 30px 1em 30px;
 }
-
 ul {
 	padding: 0px;
 	margin: 0px;
@@ -41,6 +40,7 @@ body{
 
 h1, h2 ,h3 ,h4 ,h5, h6{
 	font-family: 'gimi_base', sans-serif;
+	margin: 1em;
 }
 
 h1{
@@ -127,7 +127,9 @@ tr:nth-child(odd) {background: #FFF}
 	text-align: center;
 }
 
-
+.right_sidebar {
+	display: inline-block;
+}
 
 /* Header */
 
@@ -239,6 +241,10 @@ nav li.current_page_item a {
 
 /* index.php */
 
+.posts_container{
+	display: inline-block;
+}
+
 ul.posts_list{
 	list-style-type: none;
 	padding: 0px;
@@ -302,9 +308,11 @@ ul.posts_list{
 
 /* Page.php */
 
-.page_container h2{
+
+.page_post_title{
 	margin: 0px 0px 1em 0px;
 }
+
 
 .page_container .page_post_date {
 	text-align: right;
