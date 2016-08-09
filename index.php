@@ -2,7 +2,18 @@
 
 <div class="main_container">
 	<?php if ( have_posts() ) : ?>
-		<div class="posts_container">
+		<div class="center_container posts_container">
+			
+			<?php if (is_search() ){?>
+					<div> Risultato ricerca <?php the_search_query(); ?> : </div>
+			<?php }elseif (is_tag() ) { ?>
+					<div> <?php single_tag_title('Currently browsing Tag: '); ?> </div>
+			<?php }elseif (is_category() ) { ?>
+					<div> <?php single_cat_title('Currently browsing Category: '); ?> </div>
+			<?php }elseif (is_archive() ) { ?>
+					<div> pippo paranza </div>
+			<?php } ?>
+			
 			<ul class="posts_list">
 				<?php $post_while_counter = 0; global $wp_query;?>
 				<?php while ( have_posts() ) : the_post(); $post_while_counter++ ?>
@@ -23,6 +34,16 @@
 				<?php endwhile; ?>
 			</ul>
 			<?php print_prev_next_links(); ?>
+		</div>
+	<?php 
+	else:?>
+		<div class="center_container">
+			<?php if (is_search()){?>
+				<div>
+					Il termine "<?php the_search_query(); ?>" ricercato non esiste</br>
+					Torna in <a href="<?php echo home_url();?>" >home page</a>
+				</div>
+			<?php } ?>
 		</div>
 	<?php endif; ?>
 <?php get_sidebar('info');?>

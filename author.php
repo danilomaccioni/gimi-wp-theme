@@ -2,7 +2,7 @@
 
 <div class="main_container">
 <?php if ( have_posts() ) : ?>
-	<div class="posts_container">
+	<div class="center_container posts_container">
 		<div class="author_title">
 			<h2>Post di <?php the_author(); ?></h2>
 		</div>

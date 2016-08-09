@@ -118,16 +118,26 @@ tr:nth-child(odd) {background: #FFF}
 
 .info_sidebar{
 	/*float: right;*/
-	position: absolute;
-	right: 0px;
-	padding: 20px;
-	border-left: .7em solid #f93;
-	margin-left: 20px;
 	width: 250px;
 	text-align: center;
 }
 
 .right_sidebar {
+	display: inline-block;
+	position: absolute;
+	right: 0px;
+	padding: 20px;
+	border-left: .7em solid #f93;
+	margin-left: 20px;
+}
+
+.widget ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0px;
+}
+
+.center_container{
 	display: inline-block;
 }
 
@@ -241,9 +251,6 @@ nav li.current_page_item a {
 
 /* index.php */
 
-.posts_container{
-	display: inline-block;
-}
 
 ul.posts_list{
 	list-style-type: none;
@@ -419,12 +426,7 @@ footer {
 /* author.php */
 
 .user_sidebar{
-	/*float: right;*/
-	position: absolute;
-	right: 0px;
-	padding: 20px;
-	border-left: .7em solid #f93;
-	margin-left: 20px;
+
 	width: 200px;
 	text-align: center;
 }
@@ -549,4 +551,35 @@ ul.comment-list, ul.comment-list ul{
 .widget_categories li:hover, .widget_categories a:hover, .widget_tag_cloud a:hover {
 	color: white;
     background-color: #f93;
+}
+
+/*   404.php   */
+
+.e404{
+	display: inline-block;
+}
+
+.e404_number, .e404_not_found {
+	font-family: 'gimi_base', sans-serif;
+	line-height: initial;
+	text-align: center;
+}
+
+.e404_number {
+	font-size: 12em;
+}
+
+.e404_not_found {
+	font-size: 3em;
+}
+
+.e404_messages {
+	text-align: center;
+	padding-top: 2em;
+}
+
+.widget_recent_entries ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0px;
 }

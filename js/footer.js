@@ -43,7 +43,8 @@ function postListDynamicWidth(){
 	//console.log( $('.main_container').parent(). );
 	//var right_sidebar_width = $('.main_container').parent().width() - $('.right_sidebar').outerWidth();
 	var right_sidebar_width = $('.main_container').width() - $('.right_sidebar').outerWidth();
-	if ( $('.right_sidebar').length ) $('.posts_container').css('width', right_sidebar_width );
+	//if ( $('.right_sidebar').length ) $('.posts_container').css('width', right_sidebar_width );
+	if ( $('.right_sidebar').length ) $('.center_container').css('width', right_sidebar_width );
 	//if ( $('.right_sidebar').length && $('.navigation').length ) $('.navigation').css('width', right_sidebar_width );
 
 }

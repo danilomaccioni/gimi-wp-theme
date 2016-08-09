@@ -2,7 +2,7 @@
 
 <div class="main_container">
 	<?php if ( have_posts() ) : while ( have_posts() ): the_post(); ?>
-		<div class="post_container">
+		<div class="center_container post_container">
 			<?php if ( has_post_thumbnail() ): ?>
 				<div class="post_thumbnail">
 					<?php the_post_thumbnail(array(250,250));
