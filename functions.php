@@ -49,9 +49,19 @@ function gimi_include_function() {
 	);
 	
 	wp_enqueue_script('gimi-footer-script');
+	
+	if ( !wp_is_mobile() ) {
+		
+		wp_enqueue_script('gimi-sidebar-script',
+				get_stylesheet_directory_uri() . '/js/sidebar.js',
+				array('jquery'),
+				false,
+				true);
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'gimi_include_function' );
+
 
 // ************************************************************************** //
 

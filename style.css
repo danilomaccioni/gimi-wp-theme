@@ -14,11 +14,7 @@
 @font-face { font-family: gimi_light; src: url("./fonts/Armata-Regular.ttf") format("truetype") }
 
 
-@media(max-width: 400px) {
-	body {
-		background: red;
-	}
-}
+
 
 .main_container{
 	padding: 20px 30px 1em 30px;
@@ -115,12 +111,12 @@ td {
 tr:nth-child(even) {background: #CCC}
 tr:nth-child(odd) {background: #FFF}
 
-
+/*
 .info_sidebar{
-	/*float: right;*/
 	width: 250px;
 	text-align: center;
 }
+
 
 .right_sidebar {
 	display: inline-block;
@@ -130,6 +126,8 @@ tr:nth-child(odd) {background: #FFF}
 	border-left: .7em solid #f93;
 	margin-left: 20px;
 }
+*/
+
 
 .widget ul{
 	list-style-type: none;
@@ -431,11 +429,13 @@ footer {
 	text-align: center;
 }
 
+/*
 .user_sidebar_fixed{
-	/* top calcolato dinamicamente*/
+	/*top calcolato dinamicamente
 	position: fixed;
 	z-index: 999;
 }
+*/
 
 .user_sidebar div{
 	padding-top: .5em;
@@ -582,4 +582,39 @@ ul.comment-list, ul.comment-list ul{
 	list-style-type: none;
 	margin: 0;
 	padding: 0px;
+}
+
+/* desktop */
+@media(min-width: 1024px) {
+
+	.info_sidebar{
+		width: 250px;
+		text-align: center;
+	}
+
+	.right_sidebar {
+		position: absolute;
+		display: inline-block;
+		right: 0px;
+		padding: 20px;
+		border-left: .7em solid #f93;
+		margin-left: 20px;
+	}
+
+	/* author.php */
+
+	.user_sidebar_fixed{
+		/* top calcolato dinamicamente */
+		position: fixed;
+		z-index: 999;
+	}
+
+}
+
+/* smartpone lanscape */
+@media(max-width: 360px) {
+	.right_sidebar {
+		border-top: .2em solid #f93;
+		margin-top: 20px;
+	}
 }

@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
 <div class="main_container">
+	<?php //print_r( $_SERVER['HTTP_USER_AGENT'] ); ?>
 	<?php if ( have_posts() ) : ?>
 		<div class="center_container posts_container">
 			
