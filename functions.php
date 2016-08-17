@@ -66,7 +66,7 @@ add_action( 'wp_enqueue_scripts', 'gimi_include_function' );
 // ************************************************************************** //
 
 
-function the_post_thumbnail_caption() {
+function the_post_gimi_thumbnail_caption() {
   global $post;
 
   $thumbnail_id    = get_post_thumbnail_id($post->ID);
@@ -246,5 +246,21 @@ function creation_blog_date(){
 	// prendo solo l'anno
 	return date_i18n( 'Y', strtotime( $query_result ) ) ;
 }
+
+add_filter('wp_list_categories', 'cat_count_span');
+function cat_count_span($output) {
+	$output = str_replace('</a> (','<span> ',$output);
+	$output = str_replace(')','</span></a> ',$output);
+	return $output;
+}
+
+/*
+add_filter('wp_tag_cloud', 'tag_cloud_optionList');
+function tag_cloud_optionList($output) {
+	$output = str_replace('</a> (','<span> ',$output);
+	$output = str_replace(')','</span></a> ',$output);
+	return $output;
+}
+* */
 
 ?>
