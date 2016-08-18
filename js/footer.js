@@ -12,10 +12,14 @@ function footerPosition(){
  * 	and 
  * 		document height plus footer outerHeight is greater to window height
  */
-	if ($(document).height() ==  $(window).height() && $(document).height() + $("footer").outerHeight() >  $(window).height() ){
+ 
+	console.log("document height: " + $(document).height() + " | window height: " + $(window).height() );
+	if ($(document).height() ==  $(window).height() || ($(document).height() ==  $(window).height() && $(document).height() + $("footer").outerHeight() >  $(window).height() ) ){
 			$("footer").attr('class','bottom_footer');
+			console.log("maurizio footer");
 		} else {
 			$("footer").removeClass('bottom_footer');
+			console.log("no maurizio footer");
 		}
 }
 	
@@ -32,6 +36,9 @@ $(window).resize(function() {
 // ************************************************************************** //
 
 // INIT
+footerPosition();
+footerPosition();
+footerPosition();
 footerPosition();
 
 });

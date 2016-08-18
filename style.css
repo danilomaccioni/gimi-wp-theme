@@ -135,9 +135,6 @@ tr:nth-child(odd) {background: #FFF}
 	padding: 0px;
 }
 
-.center_container{
-	display: inline-block;
-}
 
 /* Header */
 
@@ -267,8 +264,6 @@ ul.posts_list{
 }
 
 .container_thumbnail{
-	width: 150px;
-	height: 150px;
 	/*float: left;*/
 	position: absolute;
 	
@@ -611,7 +606,23 @@ ul.comment-list, ul.comment-list ul{
 
 }
 
+@media(min-width: 361px) {
+	/*.center_container{
+		display: inline-block;
+	}*/
+
+	.container_thumbnail{
+		width: 150px;
+		height: 150px;
+	}
+
+	.post_category h6, .post_tags h6{
+		display: inline;
+	}
+}
+
 /* smartpone lanscape */
+/*
 @media(max-width: 360px) {
 	nav .menu {
 		display: inline;
@@ -669,3 +680,4 @@ ul.comment-list, ul.comment-list ul{
 		text-align: center;
 	}
 }
+* */

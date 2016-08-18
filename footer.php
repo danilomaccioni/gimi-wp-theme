@@ -1,4 +1,4 @@
-		<footer class="">
+		<footer>
 			<?php bloginfo('name'); ?>
 			<?php
 				echo '<p>' . creation_blog_date() . '</p>';
