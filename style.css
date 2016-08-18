@@ -330,20 +330,8 @@ ul.posts_list{
 	
 }
 
-.post_container h1{
-	margin: 1em 0px 0px 0px;
-}
-
 .single_post_date {
 	text-align: right;
-}
-
-.post_thumbnail{
-	float: left;
-	padding: 20px;
-	padding-left: 0px;
-	border-right: .7em solid #f93;
-	margin: 0px 20px 20px 0px;
 }
 
 /* footer.php */
@@ -473,9 +461,6 @@ footer {
 	margin: 1em 0px;
 }
 
-ul.comment-list{
-    width: 80%;
-}
 
 ul.comment-list, ul.comment-list ul{
     padding: 0px;
@@ -582,6 +567,18 @@ ul.comment-list, ul.comment-list ul{
 /* desktop */
 @media(min-width: 1024px) {
 
+	.post_thumbnail{
+		float: left;
+		padding: 20px;
+		padding-left: 0px;
+		border-right: .7em solid #f93;
+		margin: 0px 20px 20px 0px;
+	}
+
+	.post_container h1{
+		margin: 1em 0px 0px 0px;
+	}
+
 	.info_sidebar{
 		width: 250px;
 		text-align: center;
@@ -604,6 +601,10 @@ ul.comment-list, ul.comment-list ul{
 		z-index: 999;
 	}
 
+	ul.comment-list{
+		width: 80%;
+	}
+
 }
 
 @media(min-width: 361px) {
@@ -616,9 +617,10 @@ ul.comment-list, ul.comment-list ul{
 		height: 150px;
 	}
 
-	.post_category h6, .post_tags h6{
-		display: inline;
+	.post_category h6, .post_tags h6, .post_writer h6{
+		display: inline-block;
 	}
+
 }
 
 /* smartpone lanscape */

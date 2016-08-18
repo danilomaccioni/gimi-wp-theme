@@ -13,7 +13,7 @@
 			<h1><?php the_title();?></h1>
 			<?php print_post_date("single_post_date");?>
 			<?php the_content();?>
-			<p>Written by: <?php the_author_posts_link(); ?></p>
+			<div class="post_writer"><h6>Written by:</h6> <?php the_author_posts_link(); ?></div>
 			<?php print_category_and_tag(); ?>
 			
 			<?php wp_list_comments(); ?>

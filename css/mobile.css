@@ -2,13 +2,17 @@
 	padding: 10px 0px;
 }
 
-.post_category a, .post_tags a {
+.post_category a, .post_tags a, .post_writer a {
 	padding: 5px 5px;
 	margin: 2px;
 	color: white;
 	background-color: #39e;
 	border-radius: 3px;
 	display: inline-block;
+}
+
+.post_container h1{
+	line-height: initial;
 }
 
 .navigation a{
