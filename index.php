@@ -24,17 +24,17 @@
 								<a class="post_preview_thumbnail" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(150,150)); ?></a>
 						<?php endif; ?> 
 					</div>
-					<div class="post_preview">
+					<div class="post_preview" <?php post_class(); ?> >
 						<h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
-						<?php print_post_date("post_preview_date");?>
+						<?php gimi_print_post_date("post_preview_date");?>
 						<?php /*echo get_the_excerpt();*/   the_content('[ suka... ]'); ?>
 					</div>
-					<?php print_category_and_tag(); ?>
-					<?php print_post_separator($post_while_counter); ?>
+					<?php gimi_print_category_and_tag(); ?>
+					<?php gimi_print_post_separator($post_while_counter); ?>
 				</li>
 				<?php endwhile; ?>
 			</ul>
-			<?php print_prev_next_links(); ?>
+			<?php gimi_print_prev_next_links(); ?>
 		</div>
 	<?php 
 	else:?>

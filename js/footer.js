@@ -13,13 +13,13 @@ function footerPosition(){
  * 		document height plus footer outerHeight is greater to window height
  */
  
-	console.log("document height: " + $(document).height() + " | window height: " + $(window).height() );
+	//console.log("document height: " + $(document).height() + " | window height: " + $(window).height() );
 	if ($(document).height() ==  $(window).height() || ($(document).height() ==  $(window).height() && $(document).height() + $("footer").outerHeight() >  $(window).height() ) ){
 			$("footer").attr('class','bottom_footer');
-			console.log("maurizio footer");
+			//console.log("maurizio footer");
 		} else {
 			$("footer").removeClass('bottom_footer');
-			console.log("no maurizio footer");
+			//console.log("no maurizio footer");
 		}
 }
 	

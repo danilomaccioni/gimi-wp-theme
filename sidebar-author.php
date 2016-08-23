@@ -1,5 +1,5 @@
 		<div class="right_sidebar user_sidebar"> 
-			<?php $user_info = get_user_info('150'); ?>
+			<?php $user_info = gimi_get_user_info('150'); ?>
 			<div class="box_avatar"> <?php echo $user_info['html_tag_avatar']; ?> </div>
 			<div class="box_name"> <?php echo $user_info['user_name']; ?> </div>
 			<div class="box_roles box_small_text"> <?php echo $user_info['roles']; ?> </div>

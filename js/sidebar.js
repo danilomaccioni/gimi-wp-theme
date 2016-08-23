@@ -3,8 +3,11 @@ jQuery(document).ready(function($) {
 function postListDynamicWidth(){
 
 	var right_sidebar_width = $('.main_container').width() - $('.right_sidebar').outerWidth();
-	//if ( $('.right_sidebar').length ) $('.center_container').css('width', right_sidebar_width );
-	if ( $('.right_sidebar').length ) $('.center_container').css({ 'display': 'inline-block', 'width': right_sidebar_width });
+	//console.log(right_sidebar_width + " - " + $('.main_container').width() + " - " + $('.right_sidebar').outerWidth());
+	////if ( $('.right_sidebar').length ) $('.center_container').css('width', right_sidebar_width );
+	if ( $('.right_sidebar').length ) {
+		$('.center_container').css({ 'display': 'inline-block', 'width': right_sidebar_width });
+	}
 	
 }
 	
@@ -25,7 +28,7 @@ window.onscroll = function() {
 	var navOffsetTop = ( $('#wpadminbar').length )? $('#wpadminbar').outerHeight(): 0 ;
 	
 	//nav fixed scroll
-	console.log( positionFixedStatus + ' -- ' + padding + ' -- ' + navOffsetTop);
+	//console.log( positionFixedStatus + ' -- ' + padding + ' -- ' + navOffsetTop);
 	if ( positionFixedStatus ) {
 
 			$('nav').addClass('nav_fixed').css('top', navOffsetTop );
@@ -58,6 +61,7 @@ window.onscroll = function() {
 // ************************************************************************** //
 
 // INIT
+
 postListDynamicWidth()
 
 });
