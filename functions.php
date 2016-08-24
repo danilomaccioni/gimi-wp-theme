@@ -1,10 +1,26 @@
 <?php
 
+/*
+* @package WordPress
+* @subpackage gimi
+* @since gimi 0.1
+*/
+
+
 // ************************************************************************** //
 
 if ( function_exists('add_theme_support') ) {
 	add_theme_support('post-thumbnails');
+	add_theme_support( 'title-tag' );
+	add_theme_support( 'automatic-feed-links' );
+	add_theme_support( "custom-header" );
+	add_theme_support( "custom-background" );
 }
+
+if ( ! isset( $content_width ) ) $content_width = 900;
+add_editor_style();
+
+load_theme_textdomain('gimi', get_template_directory() . '/languages');
 
 // ************************************************************************** //
 
@@ -40,6 +56,15 @@ add_action( 'widgets_init', 'gimi_widgets_right_sidebar' );
 // ************************************************************************** //
 
 function gimi_include_function() {
+	if ( !wp_is_mobile() ) {
+		
+		wp_enqueue_script('gimi-sidebar-script',
+				get_stylesheet_directory_uri() . '/js/sidebar.js',
+				array('jquery'),
+				false,
+				true);
+	}
+	
 	wp_register_script(
 		'gimi-footer-script',
 		get_stylesheet_directory_uri() . '/js/footer.js',
@@ -49,15 +74,6 @@ function gimi_include_function() {
 	);
 	
 	wp_enqueue_script('gimi-footer-script');
-	
-	if ( !wp_is_mobile() ) {
-		
-		wp_enqueue_script('gimi-sidebar-script',
-				get_stylesheet_directory_uri() . '/js/sidebar.js',
-				array('jquery'),
-				false,
-				true);
-	}
 }
 
 add_action( 'wp_enqueue_scripts', 'gimi_include_function' );
@@ -66,7 +82,7 @@ add_action( 'wp_enqueue_scripts', 'gimi_include_function' );
 // ************************************************************************** //
 
 
-function the_post_gimi_thumbnail_caption() {
+function gimi_the_post_thumbnail_caption() {
   global $post;
 
   $thumbnail_id    = get_post_thumbnail_id($post->ID);
@@ -79,7 +95,7 @@ function the_post_gimi_thumbnail_caption() {
 
 /******/
 
-function print_post_date($class_div = Null){
+function gimi_print_post_date($class_div = Null){
 	$wp_post_object = get_post();
 	$str = ($class_div != Null)? ' class="' . $class_div .'"'  : '';
 	echo "<div" . $str . ">" . date_i18n( get_option( 'date_format' ), strtotime($wp_post_object->post_date ) ) . "</div>";
@@ -87,16 +103,21 @@ function print_post_date($class_div = Null){
 
 /*****/
 
-add_action( 'wp_enqueue_scripts', 'register_gimi_styles' );
+add_action( 'wp_enqueue_scripts', 'gimi_register_styles' );
 
-function register_gimi_styles() {
+function gimi_register_styles() {
 	wp_register_style( 'gimi', get_stylesheet_directory_uri() . "/style.css" );
 	wp_enqueue_style( 'gimi' );
+	if ( wp_is_mobile() ){
+		wp_register_style( 'gimi-mobile', get_stylesheet_directory_uri() . "/css/mobile.css" );
+		wp_enqueue_style( 'gimi-mobile' );
+	}
+	
 }
 
 /*********/
 
-function print_category_and_tag(){
+function gimi_print_category_and_tag(){
 		
 	$cat_array = get_the_category();
 	$tag_array = get_the_tags();
@@ -104,6 +125,7 @@ function print_category_and_tag(){
 	$tag_list = array();
 	$cat_messages = "Article posted in ";
 	$tag_messages = "Article tagged in ";
+	$separator = ( wp_is_mobile() ) ? '' : ', ';
 	
 	
 	foreach ($cat_array as $wp_term_object_array){
@@ -122,7 +144,7 @@ function print_category_and_tag(){
 			$cat_shift = array_shift($category_list);
 		
 			echo ('<div class="post_category">'
-					. 'Category: <a href="' . get_category_link( $key ) 
+					. '<h6>Category:</h6> <a href="' . get_category_link( $key ) 
 					. '" title="' . $cat_messages . $cat_shift . '">' 
 					. $cat_shift . '</a>'
 				  . '</div>');
@@ -130,10 +152,10 @@ function print_category_and_tag(){
 			
 		default:
 			$counter = 0;
-			$str = "Categories: ";
+			$str = "<h6>Categories:</h6> ";
 			foreach($category_list as $key => $value){
 				$str .= '<a href="' . get_category_link($key) . '" title="' . $cat_messages . $value . '">' . $value . '</a>';
-				$str .= ($counter < $category_counter - 1)?', ':'';
+				$str .= ($counter < $category_counter - 1)? $separator :'';
 				$counter++;
 			}
 			echo '<div class="post_category">' . $str . '</div>';
@@ -157,7 +179,7 @@ function print_category_and_tag(){
 		
 			echo(
 				'<div class="post_tags">' .
-					'Tag: ' .
+					'<h6>Tag:</h6> ' .
 					'<a ' .
 						'href="' . get_tag_link( $key ) . '" ' .
 						'title="' . $tag_messages . $tag_shift . '"' .
@@ -170,10 +192,10 @@ function print_category_and_tag(){
 		
 		default:
 			$counter = 0;
-			$str = "Tags: ";
+			$str = "<h6>Tags:</h6> ";
 			foreach($tag_list as $key => $value){
 				$str .= '<a href="' . get_tag_link($key) . '" title="' . $tag_messages . $value . '">' . $value . '</a>';
-				$str .= ($counter < $tag_counter - 1)?', ':'';
+				$str .= ($counter < $tag_counter - 1)? $separator :'';
 				$counter++;
 			}
 			echo '<div class="post_tags">' . $str . '</div>';
@@ -182,7 +204,7 @@ function print_category_and_tag(){
 }
 
 
-function print_prev_next_links(){
+function gimi_print_prev_next_links(){
 		$nav_status_prev = ( get_previous_posts_link() ) ? True : False;
 		$nav_status_next = ( get_next_posts_link() ) ? True : False;
 				
@@ -192,7 +214,7 @@ function print_prev_next_links(){
 					<div class="alignleft"><?php previous_posts_link( '&laquo; Next Entries' ); ?></div>
 				<?php endif; ?>
 				
-				<?php if( $nav_status_prev && $nav_status_next ) :?>
+				<?php if( $nav_status_prev && $nav_status_next && !wp_is_mobile()) :?>
 					<div class="nav_separetor"> || </div>
 				<?php endif; ?>
 				
@@ -203,14 +225,14 @@ function print_prev_next_links(){
 		<?php endif;
 }
 
-function print_post_separator($post_while_counter){
+function gimi_print_post_separator($post_while_counter){
 		global $wp_query;
 		if ( $post_while_counter <  $wp_query->post_count): ?>
 			<hr>
 		<?php endif;
 }
 
-function get_user_info($size = ''){
+function gimi_get_user_info($size = ''){
 		$user_info = array();
 		$WP_userdata = get_userdata( get_the_author_meta('ID') );
 		
@@ -224,7 +246,7 @@ function get_user_info($size = ''){
 		return $user_info;
 }
 
-function creation_blog_date(){
+function gimi_creation_blog_date(){
 	global $wpdb;
 	global $table_prefix;
 	
@@ -247,20 +269,11 @@ function creation_blog_date(){
 	return date_i18n( 'Y', strtotime( $query_result ) ) ;
 }
 
-add_filter('wp_list_categories', 'cat_count_span');
-function cat_count_span($output) {
+add_filter('wp_list_categories', 'gimi_cat_count_span');
+function gimi_cat_count_span($output) {
 	$output = str_replace('</a> (','<span> ',$output);
 	$output = str_replace(')','</span></a> ',$output);
 	return $output;
 }
-
-/*
-add_filter('wp_tag_cloud', 'tag_cloud_optionList');
-function tag_cloud_optionList($output) {
-	$output = str_replace('</a> (','<span> ',$output);
-	$output = str_replace(')','</span></a> ',$output);
-	return $output;
-}
-* */
 
 ?>

@@ -1,3 +1,11 @@
+<?php
+/*
+* @package WordPress
+* @subpackage gimi
+* @since gimi 0.1
+*/
+?>
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> >
 	<head>

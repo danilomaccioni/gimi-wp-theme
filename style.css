@@ -1,14 +1,15 @@
 /*
 * Theme Name: gimi
 * Theme URI: https://github.com/danilomaccioni/gimi-wp-theme
+* Author: Enrico Di Giovanni, Danilo Maccioni, Ernesto Mudu
 * Author URI: gimi.altervista.org
 * Description: Tema edizione 2016 del gruppo di interscambio multilello gli indecisi
-* Tags: two-columns, right-sidebar, full-width-template, threaded-comments, blog, education, entertainment, news
 * Version: 0.1
-* Author: Enrico Di Giovanni, Danilo Maccioni, Ernesto Mudu
-* Text Domain: gimi
 * License: GNU General Public License v2.0
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+* Tags: two-columns, right-sidebar, full-width-template, threaded-comments, blog, education, entertainment, news
+* Text Domain: gimi
+* Domain Path: ./languages
 */
 
 @charset "utf-16";

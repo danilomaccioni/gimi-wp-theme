@@ -1,3 +1,11 @@
+<?php
+/*
+* @package WordPress
+* @subpackage gimi
+* @since gimi 0.1
+*/
+?>
+
 <?php get_header(); ?>
 
 <div class="main_container">

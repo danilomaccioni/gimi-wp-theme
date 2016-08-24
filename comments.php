@@ -7,6 +7,7 @@
  *
  * @package WordPress
  * @subpackage gimi
+ * @since gimi 0.1
  */
 
 /*
@@ -26,7 +27,7 @@ if ( post_password_required() ) {
 			<?php
 				$comments_number = get_comments_number();
 				if ( 1 == $comments_number ) {
-					echo 'C\'è un commento in ' . get_the_title();
+					echo 'C\'&egrave; un commento in ' . get_the_title();
 				} else {
 					echo 'Ci sono ' . $comments_number . ' commenti in ' . get_the_title();
 				}
@@ -54,7 +55,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="no-comments"><?php _e( 'Comments are closed.'); ?></p>
+		<p class="no-comments">Comments are closed.</p>
 	<?php endif; ?>
 
 	<?php

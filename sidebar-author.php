@@ -1,3 +1,11 @@
+<?php
+/*
+* @package WordPress
+* @subpackage gimi
+* @since gimi 0.1
+*/
+?>
+
 		<div class="right_sidebar user_sidebar"> 
 			<?php $user_info = gimi_get_user_info('150'); ?>
 			<div class="box_avatar"> <?php echo $user_info['html_tag_avatar']; ?> </div>
