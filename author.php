@@ -12,7 +12,7 @@
 <?php if ( have_posts() ) : ?>
 	<div class="center_container posts_container">
 		<div class="author_title">
-			<h2>Post di <?php the_author(); ?></h2>
+			<h2>Post di <span><?php the_author(); ?></span></h2>
 		</div>
 		<ul class="posts_list author_posts_list">
 			<?php $post_while_counter = 0; global $wp_query;?>

@@ -1,3 +1,7 @@
+h1, h2 ,h3 ,h4 ,h5, h6{
+	line-height: initial;
+}
+
 .post_category, .post_tags {
 	padding: 10px 0px;
 }
@@ -11,8 +15,8 @@
 	display: inline-block;
 }
 
-.post_container h1{
-	line-height: initial;
+.post_thumbnail {
+	text-align: center;
 }
 
 .navigation a{
@@ -35,6 +39,7 @@
 	border-top: .2em solid #f93;
 	margin-top: 20px;
 	text-align: center;
+	padding-top: 1em;
 }
 
 .widget_categories label{
@@ -74,4 +79,11 @@
 		padding: 1em 0px;
 	}
 
+	.author_title span{
+		display: block;
+	}
+	
+	.container_thumbnail {
+		text-align: center;
+	}
 }

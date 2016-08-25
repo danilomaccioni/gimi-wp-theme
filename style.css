@@ -415,7 +415,7 @@ footer {
 
 div.user_sidebar{
 
-	width: 200px;
+	/*width: 200px;*/
 	text-align: center;
 }
 
@@ -537,16 +537,23 @@ ul.comment-list, ul.comment-list ul{
     color: white;
     margin: 4px;
     display: inline-block;
+    /*   */
+    border: 2px solid #39e;
+	border-radius: 3px;
+	background-color: #39e;
+	padding: 0px 1px;
 }
 
 .widget_categories span{
 	display: inline-block;
+	padding: 0px 3px 0px 3px;
+	border-radius: 3px;
 	
 }
 
 .widget_categories_label{
-	padding: 2px 5px 2px 5px;
-	border-radius: 3px 0px 0px 3px;
+	/*padding: 2px 5px 2px 5px;
+	border-radius: 3px 0px 0px 3px;*/
 	
 }
 
@@ -555,8 +562,8 @@ ul.comment-list, ul.comment-list ul{
 	/*font-family: 'gimi_base', sans-serif;*/
 	font-weight: bold;
 	background-color: #f93;
-	padding: 2px 5px 2px 5px;
-	border-radius: 0px 3px 3px 0px;
+	/*padding: 2px 5px 2px 5px;
+	border-radius: 0px 3px 3px 0px;*/
 }
 
 .widget_categories a:hover .widget_categories_label{
@@ -661,6 +668,10 @@ ul.comment-list, ul.comment-list ul{
 
 	.post_category h6, .post_tags h6, .post_writer h6{
 		display: inline-block;
+	}
+	
+	div.user_sidebar{
+		width: 200px;
 	}
 
 }
