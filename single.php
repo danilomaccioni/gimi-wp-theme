@@ -24,6 +24,8 @@
 			<div class="post_writer"><h6>Written by:</h6> <?php the_author_posts_link(); ?></div>
 			<?php gimi_print_category_and_tag(); ?>
 			
+			<?php wp_link_pages(); ?>
+			
 			<?php wp_list_comments(); ?>
 		</div>
 	<?php endwhile; endif; ?>

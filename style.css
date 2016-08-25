@@ -511,16 +511,19 @@ ul.comment-list, ul.comment-list ul{
 }
 
 /*.tagcloud a {*/
-.widget_categories li , .widget_tag_cloud a, .widget_categories select{
+.widget_categories_label , .widget_tag_cloud a, .widget_categories select{
     color: white;
     background-color: #39e;
-    border-radius: 3px;
-    display: inline-block;
+    
 }
 
-.widget_categories li, .widget_categories select{
-	padding: 2px 5px;
-	margin: 4px;
+.widget_tag_cloud a, .widget_categories select{
+	border-radius: 3px;
+}
+
+.widget_categories li, .widget_tag_cloud a, .widget_categories select{
+	/*margin: 4px;*/
+	display: inline-block;
 }
 
 .widget_tag_cloud a{
@@ -532,10 +535,41 @@ ul.comment-list, ul.comment-list ul{
 .widget_categories a {
     /*display: block;*/
     color: white;
+    margin: 4px;
+    display: inline-block;
+}
+
+.widget_categories span{
+	display: inline-block;
+	
+}
+
+.widget_categories_label{
+	padding: 2px 5px 2px 5px;
+	border-radius: 3px 0px 0px 3px;
+	
+}
+
+.widget_categories_counter{
+	/*color: #39e;*/
+	/*font-family: 'gimi_base', sans-serif;*/
+	font-weight: bold;
+	background-color: #f93;
+	padding: 2px 5px 2px 5px;
+	border-radius: 0px 3px 3px 0px;
+}
+
+.widget_categories a:hover .widget_categories_label{
+	background-color: #f93;
+}
+
+.widget_categories a:hover .widget_categories_counter{
+	background-color: #39e;
+	color: white;
 }
 
 /*.tagcloud a:hover {*/
-.widget_categories li:hover, .widget_categories a:hover, .widget_tag_cloud a:hover {
+.widget_tag_cloud a:hover {
 	color: white;
     background-color: #f93;
 }

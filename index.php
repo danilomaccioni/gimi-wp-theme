@@ -40,7 +40,6 @@
 					<?php gimi_print_category_and_tag(); ?>
 					<?php gimi_print_post_separator($post_while_counter); ?>
 				</li>
-				<?php echo 'lampo - ' . wp_link_pages('echo=0') . ' - fulmine'; ?>
 				<?php endwhile; ?>
 			</ul>
 			<?php gimi_print_prev_next_links(); ?>
