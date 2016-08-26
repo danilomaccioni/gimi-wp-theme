@@ -2,6 +2,15 @@ h1, h2 ,h3 ,h4 ,h5, h6{
 	line-height: initial;
 }
 
+nav .widget_search {
+		width: 100%;
+		text-align: center;
+	}
+
+.searchform button {
+	padding-left: 1em;
+}
+
 .post_category, .post_tags {
 	padding: 10px 0px;
 }
@@ -69,6 +78,7 @@ h1, h2 ,h3 ,h4 ,h5, h6{
 
 	nav .widget_search{
 		position: relative;
+		width: 100%
 	}
 
 	nav li {
@@ -85,5 +95,10 @@ h1, h2 ,h3 ,h4 ,h5, h6{
 	
 	.container_thumbnail {
 		text-align: center;
+	}
+	
+	.comment-form #comment {
+		width: 100%;
+		display: block;
 	}
 }

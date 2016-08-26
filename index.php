@@ -14,13 +14,11 @@
 		<div class="center_container posts_container">
 			
 			<?php if (is_search() ){?>
-					<div> Risultato ricerca <?php the_search_query(); ?> : </div>
+					<h2>Risultato ricerca: <?php the_search_query(); ?></h2>
 			<?php }elseif (is_tag() ) { ?>
-					<div> <?php single_tag_title('Currently browsing Tag: '); ?> </div>
+					<h2><?php single_tag_title('Currently browsing Tag: '); ?></h2>
 			<?php }elseif (is_category() ) { ?>
-					<div> <?php single_cat_title('Currently browsing Category: '); ?> </div>
-			<?php }elseif (is_archive() ) { ?>
-					<div> pippo paranza </div>
+					<h2><?php single_cat_title('Currently browsing Category: '); ?></h2>
 			<?php } ?>
 			
 			<ul class="posts_list">

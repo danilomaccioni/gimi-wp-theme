@@ -174,26 +174,26 @@ nav .menu{
 
 nav .widget_search {
     display: inline-block;
-    width: 300px;
-    position: absolute;
-    right: 0px;
-    text-align: right;
-    /*background-color: lightgreen;*/
-    top: 0px;
 	padding: 7px 0px;
+}
+
+nav .searchform {
+	padding-right: 16px;
 }
 
 nav .searchform * {
 	display: inline;
+	vertical-align: middle;
 }
 
 .screen-reader-text {
-	padding: 0px;
-    /*background-color: red;*/
+	padding-right: 1em;
+	color: white;
 }
 
 .search-text{
 	border: 0px;
+	border-radius: 3px;
 }
 
 .searchform button{
@@ -201,13 +201,11 @@ nav .searchform * {
 	padding: 0px;
 	margin: 0px;
 	border: none;
-	line-height: 1em;
-	height: 1em;
-	width: 1em;
+	cursor: pointer;
 }
 .searchform img{
-	height: 1em;
-	line-height: 1em;
+	height: 1.6em;
+	/*line-height: 1em;*/
 }
 
 nav ul {
@@ -502,6 +500,14 @@ ul.comment-list, ul.comment-list ul{
     padding-left: 30px;
 }
 
+.comment-form .submit{
+	background-color: rgb(51, 153, 238);
+	color: white;
+	border: 0px none;
+	border-radius: 3px;
+	padding: 3px;
+}
+
 /*  sidebar-info.php   */
 
 .widget_categories ul{
@@ -555,6 +561,10 @@ ul.comment-list, ul.comment-list ul{
 	/*padding: 2px 5px 2px 5px;
 	border-radius: 3px 0px 0px 3px;*/
 	
+}
+
+span.widget_categories_label {
+    padding-right: 8px;
 }
 
 .widget_categories_counter{
@@ -615,6 +625,15 @@ ul.comment-list, ul.comment-list ul{
 /* desktop */
 @media(min-width: 1024px) {
 
+	nav .widget_search {
+		width: 300px;
+		position: absolute;
+		right: 0px;
+		text-align: right;
+		/*background-color: lightgreen;*/
+		top: 0px;
+	}
+
 	.post_thumbnail{
 		float: left;
 		padding: 20px;
@@ -650,10 +669,20 @@ ul.comment-list, ul.comment-list ul{
 		z-index: 999;
 	}
 
-	ul.comment-list{
+
+
+	ul.comment-list, .comment-form #comment{
 		width: 80%;
 	}
-
+	
+	.comment-form #comment {
+		display: block;
+	}
+	
+	.comment-form-author, .comment-form-email, .comment-form-url {
+		display: inline-block;
+		width: 28%;
+	}
 }
 
 @media(min-width: 361px) {
