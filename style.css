@@ -617,9 +617,9 @@ span.widget_categories_label {
 }
 
 .widget_recent_entries ul{
-	list-style-type: none;
+	/*list-style-type: none;
 	margin: 0;
-	padding: 0px;
+	padding: 0px;*/
 }
 
 /* desktop */

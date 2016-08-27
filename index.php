@@ -47,8 +47,8 @@
 		<div class="center_container">
 			<?php if (is_search()){?>
 				<div>
-					Il termine "<?php the_search_query(); ?>" ricercato non esiste</br>
-					Torna in <a href="<?php echo home_url();?>" >home page</a>
+					<h2>Il termine "<?php the_search_query(); ?>" ricercato non esiste</h2></br>
+					<h3>Torna in <a href="<?php echo home_url();?>" >home page</a></h3>
 				</div>
 			<?php } ?>
 		</div>
