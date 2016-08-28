@@ -516,6 +516,41 @@ ul.comment-list, ul.comment-list ul{
 	padding: 0px;
 }
 
+/*  404-info.php   */
+
+.widget_recent_entries a{
+	/*padding: 0px 5px;
+	margin: 2px;
+	border-radius: 3px;
+	color: white;
+    background-color: #39e;*/
+    
+    padding: 0px 5px;
+	margin: 5px 0px;
+	border-radius: 3px;
+	color: white;
+	background-color: #39e;
+	display: block;
+}
+
+.widget_recent_comments li{
+	border-radius: 3px;
+	background-color: #39e;
+	padding: 1px 5px;
+	margin: 5px 0px;
+}
+
+.widget_recent_comments a{
+	color: white;
+	padding: 0px 3px;
+}
+
+.widget_recent_comments a:hover{
+	border-radius: 3px;
+	background-color: #f93;
+	color: white;
+}
+
 /*.tagcloud a {*/
 .widget_categories_label , .widget_tag_cloud a, .widget_categories select{
     color: white;
@@ -586,7 +621,7 @@ span.widget_categories_label {
 }
 
 /*.tagcloud a:hover {*/
-.widget_tag_cloud a:hover {
+.widget_tag_cloud a:hover, .widget_recent_entries a:hover{
 	color: white;
     background-color: #f93;
 }
