@@ -17,8 +17,10 @@
 			Page not Found
 		</div>
 		<div class="e404_messages">
-			The page doesn't exist on this site.</br>
-			If are lost go to <a href="<?php echo home_url();?>" >Index</a>
+			<!-- The page doesn't exist on this site.</br> -->
+			<?php _e( 'The page doesn\'t exist on this site.', 'gimi' ); ?></br>
+			<!-- If are lost go to <a href="<?php //echo home_url();?>" >Home page</a> -->
+			<?php _e( 'If are lost goto ', 'gimi' ); ?><a href="<?php echo home_url();?>" >home page</a>
 		</div>
 	</div>
 	<?php get_sidebar('404'); ?>

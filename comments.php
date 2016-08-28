@@ -24,14 +24,20 @@ if ( post_password_required() ) {
 
 	<?php if ( have_comments() ) : ?>
 		<h4 class="comments-title">
-			<?php
+			<?php /*
 				$comments_number = get_comments_number();
 				if ( 1 == $comments_number ) {
 					echo 'C\'&egrave; un commento in ' . get_the_title();
 				} else {
 					echo 'Ci sono ' . $comments_number . ' commenti in ' . get_the_title();
-				}
+				}*/
 			?>
+			
+			<?php
+			printf( _n( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'gimi' ),
+				number_format_i18n( get_comments_number() ), get_the_title() );
+			?>
+			
 		</h4>
 
 		<?php the_comments_navigation(); ?>
@@ -42,7 +48,8 @@ if ( post_password_required() ) {
 					'style'       => 'ul',
 					'short_ping'  => true,
 					'avatar_size' => 42,
-					'reply_text'  => 'Leave a reply',
+					//'reply_text'  => 'Leave a reply',
+					//'reply_text'  => __( 'Leave a reply', 'gimi'),
 				) );
 			?>
 		</ul><!-- .comment-list -->
@@ -55,7 +62,8 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 	?>
-		<p class="no-comments">Comments are closed.</p>
+		<!-- <p class="no-comments">Comments are closed.</p> -->
+		<p class="no-comments"><?php _e( 'Comments are closed.', 'gimi'); ?></p>
 	<?php endif; ?>
 
 	<?php

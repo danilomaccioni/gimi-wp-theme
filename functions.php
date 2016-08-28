@@ -123,8 +123,8 @@ function gimi_print_category_and_tag(){
 	$tag_array = get_the_tags();
 	$category_list = array();
 	$tag_list = array();
-	$cat_messages = "Article posted in ";
-	$tag_messages = "Article tagged in ";
+	$cat_messages = __('Article posted in ', 'gimi');
+	$tag_messages = __('Article tagged in ', 'gimi');
 	$separator = ( wp_is_mobile() ) ? '' : ', ';
 	
 	
@@ -144,7 +144,7 @@ function gimi_print_category_and_tag(){
 			$cat_shift = array_shift($category_list);
 		
 			echo ('<div class="post_category">'
-					. '<h6>Category:</h6> <a href="' . get_category_link( $key ) 
+					. '<h6>' . __('Category', 'gimi') . ':</h6> <a href="' . get_category_link( $key ) 
 					. '" title="' . $cat_messages . $cat_shift . '">' 
 					. $cat_shift . '</a>'
 				  . '</div>');
@@ -152,7 +152,7 @@ function gimi_print_category_and_tag(){
 			
 		default:
 			$counter = 0;
-			$str = "<h6>Categories:</h6> ";
+			$str = "<h6>" . __('Categories', 'gimi') . ":</h6> ";
 			foreach($category_list as $key => $value){
 				$str .= '<a href="' . get_category_link($key) . '" title="' . $cat_messages . $value . '">' . $value . '</a>';
 				$str .= ($counter < $category_counter - 1)? $separator :'';
@@ -179,7 +179,7 @@ function gimi_print_category_and_tag(){
 		
 			echo(
 				'<div class="post_tags">' .
-					'<h6>Tag:</h6> ' .
+					'<h6>' . __('Tag', 'gimi') . ':</h6> ' .
 					'<a ' .
 						'href="' . get_tag_link( $key ) . '" ' .
 						'title="' . $tag_messages . $tag_shift . '"' .
@@ -192,7 +192,7 @@ function gimi_print_category_and_tag(){
 		
 		default:
 			$counter = 0;
-			$str = "<h6>Tags:</h6> ";
+			$str = "<h6>" . __('Tags', 'gimi') . ":</h6> ";
 			foreach($tag_list as $key => $value){
 				$str .= '<a href="' . get_tag_link($key) . '" title="' . $tag_messages . $value . '">' . $value . '</a>';
 				$str .= ($counter < $tag_counter - 1)? $separator :'';
@@ -211,7 +211,7 @@ function gimi_print_prev_next_links(){
 		if ($nav_status_prev || $nav_status_next ) :?>
 			<div class="navigation">
 				 <?php if( $nav_status_prev ) :?>
-					<div class="alignleft"><?php previous_posts_link( '&laquo; Next Entries' ); ?></div>
+					<div class="alignleft"><?php previous_posts_link( __('&laquo; Next Entries', 'gimi') ); ?></div>
 				<?php endif; ?>
 				
 				<?php if( $nav_status_prev && $nav_status_next && !wp_is_mobile()) :?>
@@ -219,7 +219,7 @@ function gimi_print_prev_next_links(){
 				<?php endif; ?>
 				
 				<?php if( $nav_status_next ) : ?>
-					<div class="alignright"><?php next_posts_link( 'Previous Entries &raquo; ', '' ); ?></div>
+					<div class="alignright"><?php next_posts_link( __('Previous Entries &raquo; ', 'gimi'), '' ); ?></div>
 				<?php endif; ?>
 			</div>
 		<?php endif;
