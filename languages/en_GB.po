@@ -76,8 +76,8 @@ msgstr "Search Results for: %s"
 
 #: index.php:51
 #, php-format
-msgid "Term \"%s\" don't exist"
-msgstr "Term \"%s\" don't exist"
+msgid "Term \"%s\" doesn't exist"
+msgstr "Term \"%s\" doesn't exist"
 
 #: index.php:53
 msgid "Go to "

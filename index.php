@@ -33,7 +33,7 @@
 					<div <?php post_class('post_preview'); ?> >
 						<h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
 						<?php gimi_print_post_date("post_preview_date");?>
-						<?php /*echo get_the_excerpt();*/   the_content('[ suka... ]'); ?><!-- Da togliere!!!!!!! -->
+						<?php /*echo get_the_excerpt();*/   the_content(); ?>
 					</div>
 					<?php gimi_print_category_and_tag(); ?>
 					<?php gimi_print_post_separator($post_while_counter); ?>
@@ -48,7 +48,7 @@
 			<?php if (is_search()){?>
 				<div>
 					<!-- <h2>Il termine "<?php //the_search_query(); ?>" ricercato non esiste</h2></br> -->
-					<h2><?php printf( __( 'Term "%s" don\'t exist', 'gimi' ), get_search_query() ); ?></h2></br>
+					<h2><?php printf( __( 'Term "%s" doesn\'t exist', 'gimi' ), get_search_query() ); ?></h2></br>
 					<!-- <h3>Torna in <a href="<?php //echo home_url();?>" >home page</a></h3> -->
 					<h3><?php _e( 'Go to ', 'gimi' ); ?><a href="<?php echo home_url();?>" >home page</a></h3>
 				</div>
