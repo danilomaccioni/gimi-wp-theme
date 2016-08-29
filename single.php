@@ -13,9 +13,8 @@
 		<div <?php post_class( array('center_container', 'post_container') ); ?> >
 			<?php if ( has_post_thumbnail() ): ?>
 				<div class="post_thumbnail">
-					<?php the_post_thumbnail(array(250,250));
-					the_post_thumbnail_caption();
-					?>
+					<?php the_post_thumbnail(array(250,250)); ?>
+					<?php the_post_thumbnail_caption(); ?>
 				</div>
 			<?php endif; ?> 
 			<h1><?php the_title();?></h1>
@@ -26,7 +25,8 @@
 			
 			<?php wp_link_pages(); ?>
 			
-			<?php wp_list_comments(); ?>
+			<?php //wp_list_comments(); ?>
+			<?php comments_template(); ?>
 		</div>
 	<?php endwhile; endif; ?>
 </div>

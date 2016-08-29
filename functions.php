@@ -271,10 +271,17 @@ function gimi_creation_blog_date(){
 
 add_filter('wp_list_categories', 'gimi_cat_count_span');
 function gimi_cat_count_span($output) {
-	$output = str_replace('/" >','/" ><span class="widget_categories_label"> ',$output);
-	$output = str_replace('</a> (','</span><span class="widget_categories_counter"> ',$output);
+	//$output = str_replace('/" >','/" ><span class="widget_categories_label"> ',$output);
+	$output = preg_replace('/">(\w+)<\/a>/' , '"><span class="widget_categories_label">${1}</span></a>' , $output);
+	$output = str_replace('</a> (','<span class="widget_categories_counter"> ',$output);
 	$output = str_replace(')','</span></a> ',$output);
 	return $output;
+}
+
+add_filter('the_post_thumbnail_caption', 'gimi_post_thumbnail_caption_span');
+function gimi_post_thumbnail_caption_span($caption) {
+	$caption = '<span>' . $caption . '</span>';
+	return $caption;
 }
 
 ?>
