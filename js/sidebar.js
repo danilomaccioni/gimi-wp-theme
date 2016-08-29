@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
 function postListDynamicWidth(){
 
 	var right_sidebar_width = $('.main_container').width() - $('.right_sidebar').outerWidth();
-	console.log(right_sidebar_width + " - " + $('.main_container').width() + " - " + $('.right_sidebar').outerWidth());
+	//console.log(right_sidebar_width + " - " + $('.main_container').width() + " - " + $('.right_sidebar').outerWidth());
 	////if ( $('.right_sidebar').length ) $('.center_container').css('width', right_sidebar_width );
 	if (right_sidebar_width == 0) right_sidebar_width = '';
 	if ( $('.right_sidebar').length ) {
