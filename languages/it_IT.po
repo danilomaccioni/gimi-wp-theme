@@ -20,7 +20,7 @@ msgid "The page doesn't exist on this site."
 msgstr "La pagina non esiste su questo sito."
 
 #: 404.php:23
-msgid "If are lost goto "
+msgid "If are lost go to "
 msgstr "Se ti sei perso vai in"
 
 #: comments.php:37
@@ -80,7 +80,7 @@ msgid "Term \"%s\" don't exist"
 msgstr "Il termine \"%s\" Non Esiste"
 
 #: index.php:53
-msgid "Goto "
+msgid "Go to "
 msgstr "Vai a"
 
 #: searchform.php:10

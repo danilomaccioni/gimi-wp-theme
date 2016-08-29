@@ -534,19 +534,23 @@ ul.comment-list, ul.comment-list ul{
 }
 
 .widget_recent_comments li{
-	border-radius: 3px;
+/*	border-radius: 3px;
 	background-color: #39e;
-	padding: 1px 5px;
+	padding: 1px 5px;*/
 	margin: 5px 0px;
 }
 
 .widget_recent_comments a{
 	color: white;
-	padding: 0px 3px;
+	/*padding: 0px 3px;*/
+	border-radius: 3px;
+	background-color: #39e;
+	padding: 1px 5px;
+	margin: 4px 0px;
+	
 }
 
 .widget_recent_comments a:hover{
-	border-radius: 3px;
 	background-color: #f93;
 	color: white;
 }
@@ -649,6 +653,14 @@ span.widget_categories_label {
 .e404_messages {
 	text-align: center;
 	padding-top: 2em;
+}
+
+.e404_messages a{
+	padding: 0px 5px;
+	margin: 5px 0px;
+	border-radius: 3px;
+	color: white;
+	background-color: #39e;
 }
 
 .widget_recent_entries ul{

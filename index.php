@@ -30,7 +30,7 @@
 								<a class="post_preview_thumbnail" href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array(150,150)); ?></a>
 						<?php endif; ?> 
 					</div>
-					<div class="post_preview" <?php post_class(); ?> >
+					<div <?php post_class('post_preview'); ?> >
 						<h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
 						<?php gimi_print_post_date("post_preview_date");?>
 						<?php /*echo get_the_excerpt();*/   the_content('[ suka... ]'); ?><!-- Da togliere!!!!!!! -->
@@ -50,7 +50,7 @@
 					<!-- <h2>Il termine "<?php //the_search_query(); ?>" ricercato non esiste</h2></br> -->
 					<h2><?php printf( __( 'Term "%s" don\'t exist', 'gimi' ), get_search_query() ); ?></h2></br>
 					<!-- <h3>Torna in <a href="<?php //echo home_url();?>" >home page</a></h3> -->
-					<h3><?php _e( 'Goto ', 'gimi' ); ?><a href="<?php echo home_url();?>" >home page</a></h3>
+					<h3><?php _e( 'Go to ', 'gimi' ); ?><a href="<?php echo home_url();?>" >home page</a></h3>
 				</div>
 			<?php } ?>
 		</div>

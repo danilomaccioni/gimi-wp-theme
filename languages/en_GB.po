@@ -20,8 +20,8 @@ msgid "The page doesn't exist on this site."
 msgstr "The page doesn't exist on this site."
 
 #: 404.php:23
-msgid "If are lost goto "
-msgstr "If are lost goto "
+msgid "If are lost go to "
+msgstr "If are lost go to "
 
 #: comments.php:37
 #, php-format
@@ -80,8 +80,8 @@ msgid "Term \"%s\" don't exist"
 msgstr "Term \"%s\" don't exist"
 
 #: index.php:53
-msgid "Goto "
-msgstr "Goto "
+msgid "Go to "
+msgstr "Go to "
 
 #: searchform.php:10
 msgid "gimi_search"

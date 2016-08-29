@@ -10,5 +10,5 @@
 		<label class="screen-reader-text" for="s"><?php _e('gimi_search', 'gimi'); ?>:</label>
 		<input class="search-text" value="" name="s" id="s" type="text">
 		<!-- <input id="searchsubmit" value="1" type="submit"> -->
-		<button type="submit"><img src="<?php echo get_template_directory_uri(); ?>/images/search.png" ></button> 
+		<button type="submit"><img src="<?php echo get_template_directory_uri(); ?>/images/search.png" alt="Search"></button> 
 </form>
