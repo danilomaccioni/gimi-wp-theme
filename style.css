@@ -44,6 +44,7 @@ body{
 h1, h2 ,h3 ,h4 ,h5, h6{
 	font-family: 'gimi_base', sans-serif;
 	margin: 1em;
+	line-height: 1em;
 }
 
 h1{
@@ -161,27 +162,27 @@ pre {
 
 /*NAV MENU*/
 
-.nav_fixed{
+nav#header_nav.nav_fixed{
 	position: fixed;
 	width: 100%;
 	z-index: 999;
 }
 
-nav .menu{
+nav#header_nav .menu{
 	display: inline-block;
 	padding-right: 300px;
 }
 
-nav .widget_search {
+nav#header_nav .widget_search {
     display: inline-block;
 	padding: 7px 0px;
 }
 
-nav .searchform {
+nav#header_nav .searchform {
 	padding-right: 16px;
 }
 
-nav .searchform * {
+nav#header_nav .searchform * {
 	display: inline;
 	vertical-align: middle;
 }
@@ -208,7 +209,7 @@ nav .searchform * {
 	/*line-height: 1em;*/
 }
 
-nav ul {
+nav#header_nav ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0px;
@@ -216,17 +217,18 @@ nav ul {
 	background-color: #39e;*/
 }
 
-nav {
+nav#header_nav {
 	background-color: #39e;
 	position: relative;
 }
 
-nav li{
+nav#header_nav li{
 	 /*float: left;*/
 	 display:inline-block;
+	 position:relative;
 }
 
-nav li a {
+nav#header_nav li a {
 	display: block;
 	color: white;
 	text-align: center;
@@ -234,18 +236,18 @@ nav li a {
 	text-decoration: none;
 }
 
-nav li a:hover {
+nav#header_nav li a:hover {
   background-color: #fff;
   color: #39e;
 }
 
-nav li.current_page_item,
-nav li.current_page_item a:hover {
+nav#header_nav li.current_page_item,
+nav#header_nav li.current_page_item a:hover {
 	background-color: #f93;
 	color: #fff;
 } 
 
-nav li.current_page_item a {
+nav#header_nav li.current_page_item a {
 	cursor: default;
 } 
 
@@ -672,7 +674,26 @@ span.widget_categories_label {
 /* desktop */
 @media(min-width: 1024px) {
 
-	nav .widget_search {
+	nav#header_nav li ul{
+		 display:none;
+	}
+
+	nav#header_nav li:hover ul{
+		 display:inline-block;
+		 position: absolute;
+		 top: 100%;
+		 left: 0px;
+		 background-color: #39e;
+		 color: white;
+		 z-index: 999;
+		 
+	}
+
+	nav#header_nav li ul li{
+		 display:block;
+	}
+
+	nav#header_nav .widget_search {
 		width: 300px;
 		position: absolute;
 		right: 0px;

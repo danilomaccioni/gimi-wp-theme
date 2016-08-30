@@ -44,6 +44,7 @@ nav .widget_search {
 	color: white;
 	background-color: #39e;
 	border-radius: 3px;
+	line-height: 1em;
 }
 
 .container_thumbnail{
@@ -86,17 +87,17 @@ nav .widget_search {
 /* smartpone lanscape */
 /*@media(max-width: 360px) {*/
 @media(max-width: 640px) {
-	nav .menu {
+	nav#header_nav .menu {
 		display: inline;
 		padding:0px;
 	}
 
-	nav .widget_search{
+	nav#header_nav .widget_search{
 		position: relative;
 		width: 100%
 	}
 
-	nav li {
+	nav#header_nav li {
 		display: block;
 	}
 

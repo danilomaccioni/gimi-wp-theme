@@ -32,13 +32,13 @@ window.onscroll = function() {
 	//console.log( positionFixedStatus + ' -- ' + padding + ' -- ' + navOffsetTop);
 	if ( positionFixedStatus ) {
 
-			$('nav').addClass('nav_fixed').css('top', navOffsetTop );
-			$('.main_container').css('margin-top', $('nav').outerHeight() );
+			$('#header_nav').addClass('nav_fixed').css('top', navOffsetTop );
+			$('.main_container').css('margin-top', $('#header_nav').outerHeight() );
 	}
 	else {
 
-		$('nav').removeClass('nav_fixed');
-		$('nav').css('top', '');
+		$('#header_nav').removeClass('nav_fixed');
+		$('#header_nav').css('top', '');
 		$('.main_container').css('margin-top', '' );
 	}
 	
@@ -47,7 +47,7 @@ window.onscroll = function() {
 
 			$('.user_sidebar')
 				.addClass('user_sidebar_fixed')
-				.css('top', padding + navOffsetTop + $('nav').outerHeight() )
+				.css('top', padding + navOffsetTop + $('#header_nav').outerHeight() )
 			;
 	}
 	else {
