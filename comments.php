@@ -40,7 +40,7 @@ if ( post_password_required() ) {
 			
 		</h4>
 
-		<?php the_comments_navigation(); ?>
+		<?php //the_comments_navigation(); ?>
 
 		<ul class="comment-list">
 			<?php

@@ -15,7 +15,7 @@
 				<?php gimi_print_post_date("page_post_date");  ?>
 			<h2 class="page_post_title" >
 				<?php //echo $wp_object->post_title; ?>
-				<?php echo apply_filters( 'post_title', $examplePost->post_content ); ?>
+				<?php echo apply_filters( 'post_title', $wp_object->post_content ); ?>
 			</h2>
 			<?php //echo $wp_object->post_content; ?>
 			<?php echo apply_filters( 'the_content', $wp_object->post_content ); ?>

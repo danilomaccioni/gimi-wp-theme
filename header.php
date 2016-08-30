@@ -16,8 +16,9 @@
 	<body <?php body_class( ); ?> >
 		<header>
 			<h1><?php bloginfo('name'); ?></h1>
+			<div><?php bloginfo('description'); ?></div>
 		</header>
-		<nav>
+		<nav id="header_nav">
 			<?php wp_page_menu(array( 'show_home' => 1)); ?>
 			<?php the_widget('WP_Widget_Search', array(), 'prova'); ?>
 		</nav>
