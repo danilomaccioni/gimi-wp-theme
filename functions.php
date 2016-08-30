@@ -275,6 +275,7 @@ function gimi_cat_count_span($output) {
 	$output = preg_replace('/">(\w+)<\/a>/' , '"><span class="widget_categories_label">${1}</span></a>' , $output);
 	$output = str_replace('</a> (','<span class="widget_categories_counter"> ',$output);
 	$output = str_replace(')','</span></a> ',$output);
+	//$output = preg_replace('/">(.*)<\/a>\s*\((\d+)\)/' , '<span class="uno">${1}</span><span class="due">${2}</span></a>' , $output);
 	return $output;
 }
 

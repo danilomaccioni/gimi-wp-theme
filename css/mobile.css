@@ -2,6 +2,16 @@ h1, h2 ,h3 ,h4 ,h5, h6{
 	line-height: initial;
 }
 
+img {
+	max-width: 100% !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.wp-caption{
+	width: auto !important;
+}
+
 nav .widget_search {
 		width: 100%;
 		text-align: center;
