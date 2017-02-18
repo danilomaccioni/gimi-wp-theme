@@ -19,6 +19,15 @@
 			<div><?php bloginfo('description'); ?></div>
 		</header>
 		<nav id="header_nav">
-			<?php wp_page_menu(array( 'show_home' => 1)); ?>
+			<?php //wp_page_menu(array( 'show_home' => 1)); ?>
+			
+			<?php
+				$args = array( 
+					'theme_location' => 'primary' ,
+					'show_home' => true
+				);
+			 ?>
+			<?php wp_page_menu( $args ); ?>
+			
 			<?php the_widget('WP_Widget_Search', array(), 'prova'); ?>
 		</nav>

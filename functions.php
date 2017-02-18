@@ -9,13 +9,21 @@
 
 // ************************************************************************** //
 
-if ( function_exists('add_theme_support') ) {
+if ( ! function_exists( 'gimi_setup' ) ) :
+
+function gimi_setup() {
+
+	//if ( function_exists('add_theme_support') ) {
 	add_theme_support('post-thumbnails');
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( "custom-header" );
 	add_theme_support( "custom-background" );
+	//}
+	
 }
+endif; // twentyfifteen_setup
+add_action( 'after_setup_theme', 'gimi_setup' );
 
 if ( ! isset( $content_width ) ) $content_width = 900;
 add_editor_style();
@@ -51,6 +59,13 @@ function gimi_widgets_right_sidebar() {
 
 }
 add_action( 'widgets_init', 'gimi_widgets_right_sidebar' );
+
+
+add_action( 'after_setup_theme', 'register_gimi_menu' );
+
+function register_gimi_menu() {
+  register_nav_menu( 'primary', __( 'Primary Menu', 'gimi' ) );
+}
 
 
 // ************************************************************************** //
@@ -89,7 +104,7 @@ function gimi_the_post_thumbnail_caption() {
   $thumbnail_image = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
 
   if ($thumbnail_image && isset($thumbnail_image[0])) {
-    echo '<span>'.$thumbnail_image[0]->post_excerpt.'</span>';
+    echo '<figcaption>'. esc_html($thumbnail_image[0]->post_excerpt) .'</figcaption>';
   }
 }
 
@@ -97,8 +112,8 @@ function gimi_the_post_thumbnail_caption() {
 
 function gimi_print_post_date($class_div = Null){
 	$wp_post_object = get_post();
-	$str = ($class_div != Null)? ' class="' . $class_div .'"'  : '';
-	echo "<div" . $str . ">" . date_i18n( get_option( 'date_format' ), strtotime($wp_post_object->post_date ) ) . "</div>";
+	$str = ($class_div != Null)? ' class="' . esc_attr( $class_div) .'"'  : '';
+	echo "<div" . $str . ">" . esc_html( date_i18n( get_option( 'date_format' ), strtotime($wp_post_object->post_date ) ) ) . "</div>";
 }
 
 /*****/
@@ -125,7 +140,7 @@ function gimi_print_category_and_tag(){
 	$tag_list = array();
 	$cat_messages = __('Article posted in ', 'gimi');
 	$tag_messages = __('Article tagged in ', 'gimi');
-	$separator = ( wp_is_mobile() ) ? '' : ', ';
+	$separator = esc_html( ( wp_is_mobile() ) ? '' : ', ' );
 	
 	
 	foreach ($cat_array as $wp_term_object_array){
@@ -141,10 +156,10 @@ function gimi_print_category_and_tag(){
 		
 		case 1:
 			$key = key($category_list);
-			$cat_shift = array_shift($category_list);
+			$cat_shift = esc_html( array_shift($category_list) );
 		
-			echo ('<div class="post_category">'
-					. '<h6>' . __('Category', 'gimi') . ':</h6> <a href="' . get_category_link( $key ) 
+			$finalString = ('<div class="post_category">'
+					. '<h6>' . __('Category', 'gimi') . ':</h6> <a href="' . esc_url( get_category_link( $key ) ) 
 					. '" title="' . $cat_messages . $cat_shift . '">' 
 					. $cat_shift . '</a>'
 				  . '</div>');
@@ -153,12 +168,14 @@ function gimi_print_category_and_tag(){
 		default:
 			$counter = 0;
 			$str = "<h6>" . __('Categories', 'gimi') . ":</h6> ";
-			foreach($category_list as $key => $value){
-				$str .= '<a href="' . get_category_link($key) . '" title="' . $cat_messages . $value . '">' . $value . '</a>';
+			foreach($category_list as $key => $value ){
+				$str .= '<a href="' . esc_url( get_category_link($key) ) . '" title="' . $cat_messages . esc_attr($value) . '">' . esc-html($value) . '</a>';
 				$str .= ($counter < $category_counter - 1)? $separator :'';
 				$counter++;
 			}
-			echo '<div class="post_category">' . $str . '</div>';
+			
+			$finalString = '<div class="post_category">' . $str . '</div>';
+			
 			break;
 	}
 				
@@ -177,30 +194,33 @@ function gimi_print_category_and_tag(){
 			$key = key($tag_list);
 			$tag_shift = array_shift($tag_list);
 		
-			echo(
-				'<div class="post_tags">' .
-					'<h6>' . __('Tag', 'gimi') . ':</h6> ' .
-					'<a ' .
-						'href="' . get_tag_link( $key ) . '" ' .
-						'title="' . $tag_messages . $tag_shift . '"' .
-					'>' .
-						$tag_shift .
-					'</a>' .
-				'</div>'
-			);
+			$finalString = '<div class="post_tags">' .
+				'<h6>' . __('Tag', 'gimi') . ':</h6> ' .
+				'<a ' .
+					'href="' . esc_url( get_tag_link( $key ) ) . '" ' .
+					'title="' . $tag_messages . esc_attr($tag_shift) . '"' .
+				'>' .
+					esc_html( $tag_shift) .
+				'</a>' .
+			'</div>';
+			
 			break;
 		
 		default:
 			$counter = 0;
 			$str = "<h6>" . __('Tags', 'gimi') . ":</h6> ";
 			foreach($tag_list as $key => $value){
-				$str .= '<a href="' . get_tag_link($key) . '" title="' . $tag_messages . $value . '">' . $value . '</a>';
+				$str .= '<a href="' . esc_url( get_tag_link($key) ). '" title="' . $tag_messages . esc_attr( $value ) . '">' . esc_html( $value ) . '</a>';
 				$str .= ($counter < $tag_counter - 1)? $separator :'';
 				$counter++;
 			}
-			echo '<div class="post_tags">' . $str . '</div>';
+
+			$finalString = '<div class="post_tags">' . $str . '</div>';
+
 			break;
 	}
+	
+	echo $finalString;
 }
 
 
@@ -266,7 +286,7 @@ function gimi_creation_blog_date(){
 	//return date_i18n( get_option( 'date_format' ), strtotime( $query_result->date ) ) ;
 	
 	// prendo solo l'anno
-	return date_i18n( 'Y', strtotime( $query_result ) ) ;
+	return esc_html (date_i18n( 'Y', strtotime( $query_result ) ) );
 }
 
 add_filter('wp_list_categories', 'gimi_cat_count_span');
@@ -281,7 +301,7 @@ function gimi_cat_count_span($output) {
 
 add_filter('the_post_thumbnail_caption', 'gimi_post_thumbnail_caption_span');
 function gimi_post_thumbnail_caption_span($caption) {
-	$caption = '<span>' . $caption . '</span>';
+	$caption = '<figcaption>' . $caption . '</figcaption>';
 	return $caption;
 }
 

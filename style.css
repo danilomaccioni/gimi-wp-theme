@@ -3,8 +3,8 @@
 * Theme URI: https://github.com/danilomaccioni/gimi-wp-theme
 * Author: Enrico Di Giovanni, Danilo Maccioni, Ernesto Mudu
 * Author URI: gimi.altervista.org
-* Description: Tema edizione 2016 del gruppo di interscambio multilello gli indecisi
-* Version: 1.0
+* Description: This is the Gimi's Wordpress theme. Gimi is a group of artists whom decided to create their first WP theme, for educational purposes. It's a simple theme, with html5 support, and a responsive behavior. Fast to install, it supports multilanguages strings. It is easily editable in order to users needs.
+* Version: 1.1
 * License: GNU General Public License v2.0
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 * Tags: two-columns, right-sidebar, full-width-template, threaded-comments, blog, education, entertainment, news
@@ -327,7 +327,7 @@ ul.posts_list{
 
 /* single.php */
 
-.post_thumbnail span{
+.post_thumbnail figcaption{
 	display: block;
 	font-size: 0.8em;
 	font-family: 'gimi_light', sans-serif;

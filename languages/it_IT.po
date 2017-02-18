@@ -31,7 +31,7 @@ msgstr "C\\'&egrave; un commento in &ldquo;%2$s&rdquo;"
 #: comments.php:37
 #, php-format
 msgid "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr "Ci sono %1$ commenti in &ldquo;%2$s&rdquo;"
+msgstr "Ci sono %1$s commenti in &ldquo;%2$s&rdquo;"
 
 #: comments.php:66
 msgid "Comments are closed."
@@ -86,6 +86,14 @@ msgstr "Vai a"
 #: searchform.php:10
 msgid "gimi_search"
 msgstr "Cerca"
+
+#: page.php:28
+msgid "No post"
+msgstr "Nessun post"
+
+#: function.php:67
+msgid "Primary Menu"
+msgstr "Men&ugrave; primario"
 
 #~ msgid "Term \"%s\" dont exist"
 #~ msgstr "term %s don’t exist"
